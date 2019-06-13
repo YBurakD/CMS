@@ -70,6 +70,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Already have an account?.
+        /// </summary>
+        public static string AlreadyHaveAccountQM {
+            get {
+                return ResourceManager.GetString("AlreadyHaveAccountQM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category Body.
         /// </summary>
         public static string CategoryBody {
@@ -160,7 +169,7 @@ namespace Trial.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in.
+        ///   Looks up a localized string similar to Sign up.
         /// </summary>
         public static string Create {
             get {
@@ -169,11 +178,11 @@ namespace Trial.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Sign in.
+        ///   Looks up a localized string similar to Create Category.
         /// </summary>
-        public static string CreateButton {
+        public static string CreateCategory {
             get {
-                return ResourceManager.GetString("CreateButton", resourceCulture);
+                return ResourceManager.GetString("CreateCategory", resourceCulture);
             }
         }
         
@@ -183,6 +192,15 @@ namespace Trial.Core {
         public static string CreateTitle {
             get {
                 return ResourceManager.GetString("CreateTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Main Page.
+        /// </summary>
+        public static string Dashboard {
+            get {
+                return ResourceManager.GetString("Dashboard", resourceCulture);
             }
         }
         
@@ -237,6 +255,15 @@ namespace Trial.Core {
         public static string Footer {
             get {
                 return ResourceManager.GetString("Footer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Forms.
+        /// </summary>
+        public static string Forms {
+            get {
+                return ResourceManager.GetString("Forms", resourceCulture);
             }
         }
         
@@ -331,6 +358,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Layouts.
+        /// </summary>
+        public static string Layouts {
+            get {
+                return ResourceManager.GetString("Layouts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please 3 to the 250.
         /// </summary>
         public static string Length250 {
@@ -358,6 +394,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lock.
+        /// </summary>
+        public static string Lock {
+            get {
+                return ResourceManager.GetString("Lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Login.
         /// </summary>
         public static string Login {
@@ -381,6 +426,15 @@ namespace Trial.Core {
         public static string LoginTitle {
             get {
                 return ResourceManager.GetString("LoginTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Log out.
+        /// </summary>
+        public static string Logout {
+            get {
+                return ResourceManager.GetString("Logout", resourceCulture);
             }
         }
         
@@ -417,6 +471,15 @@ namespace Trial.Core {
         public static string MinLength {
             get {
                 return ResourceManager.GetString("MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No Account Yet?.
+        /// </summary>
+        public static string NoAccYetQM {
+            get {
+                return ResourceManager.GetString("NoAccYetQM", resourceCulture);
             }
         }
         
@@ -484,6 +547,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tables.
+        /// </summary>
+        public static string Tables {
+            get {
+                return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update.
         /// </summary>
         public static string Update {
@@ -498,6 +570,15 @@ namespace Trial.Core {
         public static string UpdateButton {
             get {
                 return ResourceManager.GetString("UpdateButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Profile.
+        /// </summary>
+        public static string UpdateProfile {
+            get {
+                return ResourceManager.GetString("UpdateProfile", resourceCulture);
             }
         }
         

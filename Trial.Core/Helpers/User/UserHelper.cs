@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Security;
 
-namespace Trial.Core.Helpers.Users
+namespace Trial.Core.Helpers.User
 {
     public class UserHelper : BaseHelper
     {
@@ -28,7 +28,7 @@ namespace Trial.Core.Helpers.Users
                             var user = Get(ticket.Name);
                             if (user != null && user.Role > Enums.User.UserRole.Pending)
                             {
-                                var roles = Core.Helpers.Users.UserHelper.GetRoles(user.Role);
+                                var roles = Core.Helpers.User.UserHelper.GetRoles(user.Role);
                                 var newTicket = new FormsAuthenticationTicket(0, user.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(roles));
                                 HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(newTicket)));
                                 return user;

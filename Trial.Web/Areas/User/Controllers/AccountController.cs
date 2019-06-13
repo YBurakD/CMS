@@ -10,15 +10,17 @@ namespace Trial.Web.Areas.User.Controllers
     public class AccountController : Controller
     {
         [HttpGet]
+        [Attributes.CustomAuthorize(Roles = "Default")]
         public ActionResult Index()
         {
             try
             {
-                var user = Core.Helpers.Users.UserHelper.CurrentUser();
+                var user = Core.Helpers.User.UserHelper.CurrentUser();
                 if(user != null)
                 {
                     return View(user);
                 }
+                ViewBag.User = user;
             }
             catch (Exception ex)
             {
@@ -28,6 +30,7 @@ namespace Trial.Web.Areas.User.Controllers
         }
 
         [HttpPost]
+        [Attributes.CustomAuthorize(Roles = "Default")]
         public ActionResult Index(Core.Models.User.UserItem user)
         {
             try
@@ -35,7 +38,7 @@ namespace Trial.Web.Areas.User.Controllers
                 ModelState.Remove(nameof(user.PasswordAgain));
                 if (ModelState.IsValid)
                 {
-                    var s = Core.Helpers.Users.UserHelper.Save(user);
+                    var s = Core.Helpers.User.UserHelper.Save(user);
                     TempData["Message"] = Core.Strings.UpdateSuccess;
                 }
                 else
@@ -51,11 +54,12 @@ namespace Trial.Web.Areas.User.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Login()
         {
             try
             {
-                var user = Core.Helpers.Users.UserHelper.CurrentUser();
+                var user = Core.Helpers.User.UserHelper.CurrentUser();
                 if (user != null)
                 {
                     if (user.Role == Core.Enums.User.UserRole.Administrator)
@@ -72,13 +76,14 @@ namespace Trial.Web.Areas.User.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Login(Core.Models.User.UserLoginItem user)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
-                    var login = Core.Helpers.Users.UserHelper.Login(user);
+                    var login = Core.Helpers.User.UserHelper.Login(user);
                     if (login != null)
                     {
                         if (login.Role == Core.Enums.User.UserRole.Pending)
@@ -86,7 +91,7 @@ namespace Trial.Web.Areas.User.Controllers
                             TempData["Error"] = Core.Strings.InvalidRole;
                             return View();
                         }
-                        var roles = Core.Helpers.Users.UserHelper.GetRoles(login.Role);
+                        var roles = Core.Helpers.User.UserHelper.GetRoles(login.Role);
                         var ticket = new FormsAuthenticationTicket(0, login.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(roles));
                         var encyrptData = FormsAuthentication.Encrypt(ticket);
                         Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encyrptData));
@@ -109,11 +114,12 @@ namespace Trial.Web.Areas.User.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Create()
         {
             try
             {
-                var user = Core.Helpers.Users.UserHelper.CurrentUser();
+                var user = Core.Helpers.User.UserHelper.CurrentUser();
                 if (user != null)
                 {
                     if (user.Role == Core.Enums.User.UserRole.Administrator)
@@ -129,6 +135,7 @@ namespace Trial.Web.Areas.User.Controllers
             return View();
         }
         [HttpPost]
+        [AllowAnonymous]
         public ActionResult Create(Core.Models.User.UserItem user)
         {
             try
@@ -136,8 +143,8 @@ namespace Trial.Web.Areas.User.Controllers
                 if (ModelState.IsValid)
                 {
                     user.Id = Guid.NewGuid();
-                    user.Role = Core.Enums.User.UserRole.Pending;
-                    var s = Core.Helpers.Users.UserHelper.Save(user);
+                    user.Role = Core.Enums.User.UserRole.Default;
+                    var s = Core.Helpers.User.UserHelper.Save(user);
                     return RedirectToAction(nameof(Login));
                 }
                 else

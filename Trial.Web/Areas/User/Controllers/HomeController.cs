@@ -8,7 +8,7 @@ namespace Trial.Web.Areas.User.Controllers
 {
     public class HomeController : Controller
     {
-        // GET: User/Home
+        [Attributes.CustomAuthorize(Roles = "Default")]
         public ActionResult Index()
         {
             return View();

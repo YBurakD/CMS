@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>@ViewBag.Title - @Trial.Core.Strings.ProjectName</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @Styles.Render("~/panel/style")
+    @Scripts.Render("~/panel/script")
+</head>
+<body class="menubar-hoverable header-fixed ">
+    
+    @Html.Partial("_Header")
+
+    <div id="base">
+        <div id="content">
+            @RenderBody()
+        </div>
+        @Html.Partial("_MenuBar")
+    </div>
+</body>
+</html>

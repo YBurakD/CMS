@@ -87,7 +87,7 @@
     <Compile Include="Enums\User\UserRole.cs" />
     <Compile Include="Helpers\BaseHelper.cs" />
     <Compile Include="Helpers\Category\CategoryHelper.cs" />
-    <Compile Include="Helpers\Users\UserHelper.cs" />
+    <Compile Include="Helpers\User\UserHelper.cs" />
     <Compile Include="Models\Category\CategoryItem.cs" />
     <Compile Include="Models\Content\ContentItem.cs" />
     <Compile Include="Models\Page\PageItem.cs" />

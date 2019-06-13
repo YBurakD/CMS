@@ -26,5 +26,6 @@ namespace Trial.Core.Models.Category
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }
+        public List<CategoryItem> Categories { get; set; }
     }
 }

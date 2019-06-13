@@ -70,6 +70,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Zaten bir hesabın var mı?.
+        /// </summary>
+        public static string AlreadyHaveAccountQM {
+            get {
+                return ResourceManager.GetString("AlreadyHaveAccountQM", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategori gövdesi.
         /// </summary>
         public static string CategoryBody {
@@ -169,20 +178,20 @@ namespace Trial.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kaydol.
+        ///   Looks up a localized string similar to Kategori Oluştur.
         /// </summary>
-        public static string CreateButton {
+        public static string CreateCategory {
             get {
-                return ResourceManager.GetString("CreateButton", resourceCulture);
+                return ResourceManager.GetString("CreateCategory", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Kaydol.
+        ///   Looks up a localized string similar to Anasayfa.
         /// </summary>
-        public static string CreateTitle {
+        public static string Dashboard {
             get {
-                return ResourceManager.GetString("CreateTitle", resourceCulture);
+                return ResourceManager.GetString("Dashboard", resourceCulture);
             }
         }
         
@@ -237,6 +246,15 @@ namespace Trial.Core {
         public static string Footer {
             get {
                 return ResourceManager.GetString("Footer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Formlar.
+        /// </summary>
+        public static string Forms {
+            get {
+                return ResourceManager.GetString("Forms", resourceCulture);
             }
         }
         
@@ -331,6 +349,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Şablonlar.
+        /// </summary>
+        public static string Layouts {
+            get {
+                return ResourceManager.GetString("Layouts", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Lütfen 3 ile 250 karakter arasında bir değer giriniz..
         /// </summary>
         public static string Length250 {
@@ -358,6 +385,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kilitle.
+        /// </summary>
+        public static string Lock {
+            get {
+                return ResourceManager.GetString("Lock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Giriş Yap.
         /// </summary>
         public static string Login {
@@ -367,20 +403,11 @@ namespace Trial.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Giriş Yap.
+        ///   Looks up a localized string similar to Çıkış Yap.
         /// </summary>
-        public static string LoginButton {
+        public static string Logout {
             get {
-                return ResourceManager.GetString("LoginButton", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Giriş.
-        /// </summary>
-        public static string LoginTitle {
-            get {
-                return ResourceManager.GetString("LoginTitle", resourceCulture);
+                return ResourceManager.GetString("Logout", resourceCulture);
             }
         }
         
@@ -417,6 +444,15 @@ namespace Trial.Core {
         public static string MinLength {
             get {
                 return ResourceManager.GetString("MinLength", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Henüz bir hesabın yok mu?.
+        /// </summary>
+        public static string NoAccYetQM {
+            get {
+                return ResourceManager.GetString("NoAccYetQM", resourceCulture);
             }
         }
         
@@ -484,6 +520,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kaydet.
+        /// </summary>
+        public static string Save {
+            get {
+                return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tablolar.
+        /// </summary>
+        public static string Tables {
+            get {
+                return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Güncelle.
         /// </summary>
         public static string Update {
@@ -493,11 +547,11 @@ namespace Trial.Core {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Güncelle.
+        ///   Looks up a localized string similar to Profilimi Güncelle.
         /// </summary>
-        public static string UpdateButton {
+        public static string UpdateProfile {
             get {
-                return ResourceManager.GetString("UpdateButton", resourceCulture);
+                return ResourceManager.GetString("UpdateProfile", resourceCulture);
             }
         }
         

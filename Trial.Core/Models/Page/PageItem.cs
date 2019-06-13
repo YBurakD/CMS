@@ -9,5 +9,6 @@ namespace Trial.Core.Models.Page
     public class PageItem
     {
         public Core.Models.User.UserItem User { get; set; }
+        public List<Core.Models.Category.CategoryItem> Categories { get; set; }
     }
 }

@@ -120,6 +120,9 @@
   <data name="Administrator" xml:space="preserve">
     <value>Administrator</value>
   </data>
+  <data name="AlreadyHaveAccountQM" xml:space="preserve">
+    <value>Already have an account?</value>
+  </data>
   <data name="CategoryBody" xml:space="preserve">
     <value>Category Body</value>
   </data>
@@ -151,13 +154,16 @@
     <value>Content Title Empty</value>
   </data>
   <data name="Create" xml:space="preserve">
-    <value>Sign in</value>
+    <value>Sign up</value>
   </data>
-  <data name="CreateButton" xml:space="preserve">
-    <value>Sign in</value>
+  <data name="CreateCategory" xml:space="preserve">
+    <value>Create Category</value>
   </data>
   <data name="CreateTitle" xml:space="preserve">
     <value>Sign in</value>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>Main Page</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Default</value>
@@ -176,6 +182,9 @@
   </data>
   <data name="Footer" xml:space="preserve">
     <value>© 2019 - Yunus Burak Durmuş</value>
+  </data>
+  <data name="Forms" xml:space="preserve">
+    <value>Forms</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Main Page</value>
@@ -207,6 +216,9 @@
   <data name="LastNameEmpty" xml:space="preserve">
     <value>Last Name Empty</value>
   </data>
+  <data name="Layouts" xml:space="preserve">
+    <value>Layouts</value>
+  </data>
   <data name="Length250" xml:space="preserve">
     <value>Please 3 to the 250</value>
   </data>
@@ -216,6 +228,9 @@
   <data name="Length500" xml:space="preserve">
     <value>Please 3 to the 500</value>
   </data>
+  <data name="Lock" xml:space="preserve">
+    <value>Lock</value>
+  </data>
   <data name="Login" xml:space="preserve">
     <value>Login</value>
   </data>
@@ -224,6 +239,9 @@
   </data>
   <data name="LoginTitle" xml:space="preserve">
     <value>Login</value>
+  </data>
+  <data name="Logout" xml:space="preserve">
+    <value>Log out</value>
   </data>
   <data name="Mail" xml:space="preserve">
     <value>Mail</value>
@@ -236,6 +254,9 @@
   </data>
   <data name="MinLength" xml:space="preserve">
     <value>Min Length 3</value>
+  </data>
+  <data name="NoAccYetQM" xml:space="preserve">
+    <value>No Account Yet?</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -258,11 +279,17 @@
   <data name="Role" xml:space="preserve">
     <value>Role</value>
   </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+  </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>
   </data>
   <data name="UpdateButton" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="UpdateProfile" xml:space="preserve">
+    <value>Update Profile</value>
   </data>
   <data name="UpdateSuccess" xml:space="preserve">
     <value>Update Finished</value>

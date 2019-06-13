@@ -12,6 +12,8 @@ namespace Trial.Web.Attributes
         {
             if (this.AuthorizeCore(filterContext.HttpContext))
             {
+                var user = filterContext.HttpContext.User;
+                
                 base.OnAuthorization(filterContext);
             }
             else

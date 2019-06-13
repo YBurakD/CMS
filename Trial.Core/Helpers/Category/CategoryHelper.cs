@@ -6,13 +6,15 @@ using System.Threading.Tasks;
 
 namespace Trial.Core.Helpers.Category
 {
-    class CategoryHelper : BaseHelper
+    public class CategoryHelper : BaseHelper
     {
-        public List<Core.Models.Category.CategoryItem> GetAllCategories()
+        static public List<Core.Models.Category.CategoryItem> GetAllCategories()
         {
             using (var db = new DataModel.Entities())
             {
                 var list = (from i in db.Categories
+                            where i.Deleted == null
+                            orderby i.Row
                             select new Core.Models.Category.CategoryItem()
                             {
                                 Id = i.Id,
@@ -20,8 +22,11 @@ namespace Trial.Core.Helpers.Category
                                 Body = i.Body,
                                 ParentId = i.ParentId,
                                 Row = i.Row,
-                                UserId = i.UserId
-                                
+                                UserId = i.UserId,
+                                Type = i.Type,
+                                Status = i.Status,
+                                Created = i.Created,
+                                Updated = i.Updated
                             }).ToList();
                 return list;
             }
@@ -39,6 +44,7 @@ namespace Trial.Core.Helpers.Category
                 return Update(category, db, result);
             }
         }
+
         static private Core.Models.Category.CategoryItem Update(Core.Models.Category.CategoryItem category, DataModel.Entities db, DataModel.Category dbCategory)
         {
             dbCategory.Name = !string.IsNullOrEmpty(category.Name) && category.Name != dbCategory.Name ? category.Name : dbCategory.Name;
@@ -47,6 +53,7 @@ namespace Trial.Core.Helpers.Category
             db.SaveChanges();
             return category;
         }
+
         static private Core.Models.Category.CategoryItem Create(Core.Models.Category.CategoryItem category, DataModel.Entities db)
         {
             var newCategory = new DataModel.Category()
@@ -55,7 +62,7 @@ namespace Trial.Core.Helpers.Category
                 Name = category.Name,
                 Body = category.Body,
                 ParentId = category.ParentId,
-                Row = category.Row,
+                Row = 0,
                 UserId = category.UserId,
                 Type = category.Type,
                 Status = category.Status,
