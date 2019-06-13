@@ -1,0 +1,16 @@
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\Trial.Core.dll.config
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\Trial.Core.dll
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\Trial.Core.pdb
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\EntityFramework.dll
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\Newtonsoft.Json.dll
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\EntityFramework.xml
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\Pixel\source\repos\Trial\Trial.Core\bin\Release\Newtonsoft.Json.xml
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.Strings-en.resources
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.Strings.resources
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.csproj.GenerateResource.cache
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.csproj.CoreCompileInputs.cache
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.csproj.CopyComplete
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.dll
+C:\Users\Pixel\source\repos\Trial\Trial.Core\obj\Release\Trial.Core.pdb
