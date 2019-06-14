@@ -226,5 +226,5 @@
         return (c < 47 || c > 58) && (c < 95 || c > 106);
     };
 
-    window.socialplus.AppValidate = new AppValidate;
-}(this.socialplus, jQuery));
+    window.trial.AppValidate = new AppValidate;
+}(this.trial, jQuery));

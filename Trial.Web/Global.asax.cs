@@ -32,8 +32,9 @@ namespace Trial.Web
 
                         if (!ticket.Expired)
                         {
-                            var data = JsonConvert.DeserializeObject<string[]>(ticket.UserData);
-                            HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(ticket.Name, "Forms"), data);
+                            var userData = JsonConvert.DeserializeObject<Core.Models.User.UserItem>(ticket.UserData);
+                            var rolesData = Core.Helpers.User.UserHelper.GetRoles(userData.Role);
+                            HttpContext.Current.User = new System.Security.Principal.GenericPrincipal(new System.Security.Principal.GenericIdentity(ticket.Name, "Forms"), rolesData);
                         }
                     }
                 }

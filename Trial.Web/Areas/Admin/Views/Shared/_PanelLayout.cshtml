@@ -9,13 +9,25 @@
 </head>
 <body class="menubar-hoverable header-fixed ">
     
-    @Html.Partial("_Header")
+    @Html.Partial("~/Areas/Admin/Views/Shared/_Header.cshtml")
 
     <div id="base">
         <div id="content">
+            @if (TempData["Error"] != null)
+            {
+                <script>
+                    trial.App._sendMessage("@TempData["Error"].ToString()","error");
+                </script>
+            }
+            @if (TempData["Message"] != null)
+            {
+                <script>
+                    trial.App._sendMessage("@TempData["Message"].ToString()","success");
+                </script>
+            }
             @RenderBody()
         </div>
-        @Html.Partial("_MenuBar")
+        @Html.Partial("~/Areas/Admin/Views/Shared/_MenuBar.cshtml")
     </div>
 </body>
 </html>

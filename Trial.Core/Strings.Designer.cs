@@ -79,6 +79,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Onaylı.
+        /// </summary>
+        public static string Approved {
+            get {
+                return ResourceManager.GetString("Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Kategoriler.
+        /// </summary>
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategori gövdesi.
         /// </summary>
         public static string CategoryBody {
@@ -255,6 +273,15 @@ namespace Trial.Core {
         public static string Forms {
             get {
                 return ResourceManager.GetString("Forms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gizli.
+        /// </summary>
+        public static string Hide {
+            get {
+                return ResourceManager.GetString("Hide", resourceCulture);
             }
         }
         
@@ -448,6 +475,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navigasyon.
+        /// </summary>
+        public static string Navigation {
+            get {
+                return ResourceManager.GetString("Navigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Henüz bir hesabın yok mu?.
         /// </summary>
         public static string NoAccYetQM {
@@ -525,6 +561,15 @@ namespace Trial.Core {
         public static string Save {
             get {
                 return ResourceManager.GetString("Save", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ayarlar.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

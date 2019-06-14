@@ -15,12 +15,8 @@ namespace Trial.Web.Areas.User.Controllers
         {
             try
             {
-                var user = Core.Helpers.User.UserHelper.CurrentUser();
-                if(user != null)
-                {
-                    return View(user);
-                }
-                ViewBag.User = user;
+                var user = (Core.Models.User.UserItem)(ViewBag.User);
+                return View(user);
             }
             catch (Exception ex)
             {
@@ -92,7 +88,7 @@ namespace Trial.Web.Areas.User.Controllers
                             return View();
                         }
                         var roles = Core.Helpers.User.UserHelper.GetRoles(login.Role);
-                        var ticket = new FormsAuthenticationTicket(0, login.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(roles));
+                        var ticket = new FormsAuthenticationTicket(0, login.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(login));
                         var encyrptData = FormsAuthentication.Encrypt(ticket);
                         Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, encyrptData));
                         if (login.Role == Core.Enums.User.UserRole.Administrator)

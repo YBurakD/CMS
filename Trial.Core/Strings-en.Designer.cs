@@ -79,6 +79,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Onaylı.
+        /// </summary>
+        public static string Approved {
+            get {
+                return ResourceManager.GetString("Approved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Categories.
+        /// </summary>
+        public static string Categories {
+            get {
+                return ResourceManager.GetString("Categories", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category Body.
         /// </summary>
         public static string CategoryBody {
@@ -264,6 +282,15 @@ namespace Trial.Core {
         public static string Forms {
             get {
                 return ResourceManager.GetString("Forms", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hide.
+        /// </summary>
+        public static string Hide {
+            get {
+                return ResourceManager.GetString("Hide", resourceCulture);
             }
         }
         
@@ -475,6 +502,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Navigation.
+        /// </summary>
+        public static string Navigation {
+            get {
+                return ResourceManager.GetString("Navigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to No Account Yet?.
         /// </summary>
         public static string NoAccYetQM {
@@ -543,6 +579,15 @@ namespace Trial.Core {
         public static string Role {
             get {
                 return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
             }
         }
         

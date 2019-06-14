@@ -73,5 +73,5 @@
         });
     };
 
-    window.socialplus.AppForm = new AppForm;
-}(this.socialplus, jQuery));
+    window.trial.AppForm = new AppForm;
+}(this.trial, jQuery));

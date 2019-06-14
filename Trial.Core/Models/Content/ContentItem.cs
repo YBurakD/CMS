@@ -21,6 +21,7 @@ namespace Trial.Core.Models.Content
         [Display(Name = "ContentBody", ResourceType = typeof(Strings))]
         [Required(ErrorMessageResourceName = "ContentBodyEmpty", ErrorMessageResourceType = typeof(Strings))]
         public string Body { get; set; }
+        public string Url { get; set; }
         public DateTime ContentDate { get; set; }
         public Guid CategoryId { get; set; }
         public Guid UserId { get; set; }

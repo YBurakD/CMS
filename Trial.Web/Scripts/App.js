@@ -245,6 +245,6 @@
     // DEFINE NAMESPACE
     // =========================================================================
 
-    window.socialplus = window.socialplus || {};
-    window.socialplus.App = new App;
+    window.trial = window.trial || {};
+    window.trial.App = new App;
 }(jQuery)); // pass in (jQuery):

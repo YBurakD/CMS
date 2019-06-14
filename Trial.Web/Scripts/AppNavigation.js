@@ -196,7 +196,7 @@
     // =========================================================================
 
     p._handleMenuToggleClick = function (e) {
-        if (!socialplus.App.isBreakpoint('xs')) {
+        if (!trial.App.isBreakpoint('xs')) {
             $('body').toggleClass('menubar-pin');
         }
 
@@ -279,7 +279,7 @@
         $('body').removeClass('menubar-visible');
 
         // Don't close the menus when it is pinned on large viewports
-        if (socialplus.App.minBreakpoint('md')) {
+        if (trial.App.minBreakpoint('md')) {
             if ($('body').hasClass('menubar-pin')) {
                 return;
             }
@@ -288,7 +288,7 @@
 
 
         // Never close the menu on extra small viewports
-        if (socialplus.App.isBreakpoint('xs') === false) {
+        if (trial.App.isBreakpoint('xs') === false) {
             this._closeSubMenu($('#main-menu'));
         }
     };
@@ -487,5 +487,5 @@
     // DEFINE NAMESPACE
     // =========================================================================
 
-    window.socialplus.AppNavigation = new AppNavigation;
-}(this.socialplus, jQuery)); // pass in (namespace, jQuery):
+    window.trial.AppNavigation = new AppNavigation;
+}(this.trial, jQuery)); // pass in (namespace, jQuery):

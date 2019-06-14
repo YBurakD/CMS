@@ -44,5 +44,19 @@ namespace Trial.Core.Models.User
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }
+
+        public string FullName => $"{FirstName} {LastName}";
+
+        //public string FullName => FirstName + " " + LastName;
+        /*public string FullName { get
+            {
+                return FirstName + " " + LastName;
+            }
+        }*/
+        /*public string FullName { get
+            {
+                return $"{FirstName} {LastName}";
+            }
+        }*/
     }
 }

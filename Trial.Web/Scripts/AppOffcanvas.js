@@ -271,5 +271,5 @@
     // DEFINE NAMESPACE
     // =========================================================================
 
-    window.socialplus.AppOffcanvas = new AppOffcanvas;
-}(this.socialplus, jQuery)); // pass in (namespace, jQuery):
+    window.trial.AppOffcanvas = new AppOffcanvas;
+}(this.trial, jQuery)); // pass in (namespace, jQuery):

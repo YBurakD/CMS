@@ -123,6 +123,12 @@
   <data name="AlreadyHaveAccountQM" xml:space="preserve">
     <value>Already have an account?</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Onaylı</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Categories</value>
+  </data>
   <data name="CategoryBody" xml:space="preserve">
     <value>Category Body</value>
   </data>
@@ -185,6 +191,9 @@
   </data>
   <data name="Forms" xml:space="preserve">
     <value>Forms</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Hide</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Main Page</value>
@@ -255,6 +264,9 @@
   <data name="MinLength" xml:space="preserve">
     <value>Min Length 3</value>
   </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
   <data name="NoAccYetQM" xml:space="preserve">
     <value>No Account Yet?</value>
   </data>
@@ -278,6 +290,9 @@
   </data>
   <data name="Role" xml:space="preserve">
     <value>Role</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Tables</value>

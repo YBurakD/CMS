@@ -9,6 +9,7 @@ namespace Trial.Web.Areas.Admin.Controllers
     [Attributes.CustomAuthorize(Roles = "Administrator")]
     public class CategoryController : Controller
     {
+
         // GET: Admin/Category
         public ActionResult Index()
         {
@@ -20,11 +21,6 @@ namespace Trial.Web.Areas.Admin.Controllers
         {
             try
             {
-                var user = Core.Helpers.User.UserHelper.CurrentUser();
-                if(user == null)
-                {
-                    return RedirectToAction("Index", "Home");
-                }
                 var categories = Core.Helpers.Category.CategoryHelper.GetAllCategories();
                 var category = new Core.Models.Category.CategoryItem()
                 {
@@ -44,16 +40,27 @@ namespace Trial.Web.Areas.Admin.Controllers
         {
             try
             {
+                var user = (Core.Models.User.UserItem)(ViewBag.User);
                 if (ModelState.IsValid)
                 {
-
+                    category.Id = Guid.NewGuid();
+                    category.UserId = user.Id;
+                    category.Row = 0;
+                    Core.Helpers.Category.CategoryHelper.Save(category);
+                    TempData["Message"] = Core.Strings.UpdateSuccess;
+                }
+                else
+                {
+                    TempData["Error"] = Core.Helpers.BaseHelper.ModelStateErrors(ModelState);
                 }
             }
             catch (Exception ex)
             {
                 TempData["Error"] = ex.Message;
             }
-            return View();
+            var categories = Core.Helpers.Category.CategoryHelper.GetAllCategories();
+            category.Categories = categories;
+            return View(category);
         }
     }
 }

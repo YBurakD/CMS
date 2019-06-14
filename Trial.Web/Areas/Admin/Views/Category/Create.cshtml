@@ -5,35 +5,96 @@
     Layout = "~/Areas/Admin/Views/Shared/_PanelLayout.cshtml";
 }
 
-<h2>@Trial.Core.Strings.CreateCategory</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/AppCategory.js"></script>
 
-@using (Html.BeginForm()) 
-{
-    @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-            </div>
+<section class="section-body">
+    <div class="card">
+        <div class="card-head">
+            <header>
+                @Trial.Core.Strings.CreateCategory
+            </header>
         </div>
+        <div class="card-body">
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
-            </div>
-        </div>
+            @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "form floating-label" }))
+            {
+                @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Trial.Core.Strings.Save" class="btn btn-default" />
-            </div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.LabelFor(model => model.Name)
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Trial.Core.Strings.Categories</label>
+                            <select class="form-control" name="ParentId">
+                                <option value="">Yok</option>
+                                @if (Model.Categories?.Count > 0)
+                                {
+                                    foreach (var category in Model.Categories)
+                                    {
+                                        <option value="@category.Id">@category.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">Kategori Tipi</label>
+                            <br />
+                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryType)))
+                            {
+                                var selected = "";
+                                if (type.Value == "1")
+                                {
+                                    selected = "checked";
+                                }
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Type" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                </label>
+                            }
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label">Kategori Durumu</label>
+                            <br />
+                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryStatus)))
+                            {
+                                var selected = "";
+                                if (type.Value == "1")
+                                {
+                                    selected = "checked";
+                                }
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Status" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="@Trial.Core.Strings.Save" class="btn btn-default" />
+                    </div>
+                </div>
+            }
         </div>
     </div>
-}
+</section>
+
+

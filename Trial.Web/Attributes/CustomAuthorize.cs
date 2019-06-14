@@ -10,10 +10,11 @@ namespace Trial.Web.Attributes
     {
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
-            if (this.AuthorizeCore(filterContext.HttpContext))
+            var user = Core.Helpers.User.UserHelper.CurrentUser();
+            if (this.AuthorizeCore(filterContext.HttpContext) && user != null)
             {
-                var user = filterContext.HttpContext.User;
-                
+                var vb = filterContext.Controller.ViewBag;
+                vb.User = user;
                 base.OnAuthorization(filterContext);
             }
             else

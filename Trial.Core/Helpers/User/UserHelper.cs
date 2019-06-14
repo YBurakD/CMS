@@ -28,8 +28,7 @@ namespace Trial.Core.Helpers.User
                             var user = Get(ticket.Name);
                             if (user != null && user.Role > Enums.User.UserRole.Pending)
                             {
-                                var roles = Core.Helpers.User.UserHelper.GetRoles(user.Role);
-                                var newTicket = new FormsAuthenticationTicket(0, user.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(roles));
+                                var newTicket = new FormsAuthenticationTicket(0, user.Name, DateTime.Now, DateTime.Now.AddHours(2), false, Newtonsoft.Json.JsonConvert.SerializeObject(user));
                                 HttpContext.Current.Response.Cookies.Add(new HttpCookie(FormsAuthentication.FormsCookieName, FormsAuthentication.Encrypt(newTicket)));
                                 return user;
                             }

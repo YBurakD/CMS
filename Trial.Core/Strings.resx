@@ -123,6 +123,12 @@
   <data name="AlreadyHaveAccountQM" xml:space="preserve">
     <value>Zaten bir hesabın var mı?</value>
   </data>
+  <data name="Approved" xml:space="preserve">
+    <value>Onaylı</value>
+  </data>
+  <data name="Categories" xml:space="preserve">
+    <value>Kategoriler</value>
+  </data>
   <data name="CategoryBody" xml:space="preserve">
     <value>Kategori gövdesi</value>
   </data>
@@ -182,6 +188,9 @@
   </data>
   <data name="Forms" xml:space="preserve">
     <value>Formlar</value>
+  </data>
+  <data name="Hide" xml:space="preserve">
+    <value>Gizli</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Anasayfa</value>
@@ -246,6 +255,9 @@
   <data name="MinLength" xml:space="preserve">
     <value>En az 3 karakter olmak zorundadır.</value>
   </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigasyon</value>
+  </data>
   <data name="NoAccYetQM" xml:space="preserve">
     <value>Henüz bir hesabın yok mu?</value>
   </data>
@@ -272,6 +284,9 @@
   </data>
   <data name="Save" xml:space="preserve">
     <value>Kaydet</value>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Ayarlar</value>
   </data>
   <data name="Tables" xml:space="preserve">
     <value>Tablolar</value>
