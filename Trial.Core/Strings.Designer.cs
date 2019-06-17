@@ -133,6 +133,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kategori Tipi.
+        /// </summary>
+        public static string CategoryType {
+            get {
+                return ResourceManager.GetString("CategoryType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İçerik gövdesi.
         /// </summary>
         public static string ContentBody {
@@ -651,6 +660,15 @@ namespace Trial.Core {
         public static string UserNotFound {
             get {
                 return ResourceManager.GetString("UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lütfen içerik ekleyiniz..
+        /// </summary>
+        public static string WarningAddContent {
+            get {
+                return ResourceManager.GetString("WarningAddContent", resourceCulture);
             }
         }
         

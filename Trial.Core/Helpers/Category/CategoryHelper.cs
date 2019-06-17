@@ -19,8 +19,42 @@ namespace Trial.Core.Helpers.Category
             </li>
         </ol>
         */
+        static public string HTMLifier(List<Models.Category.CategoryItem> ContentList)
+        {
+            string HTMLContext = "<ol class='dd-list'>";
+            int count = 0;
 
-        static public string NestedListHTML = "<ol class='dd-list'>\n";
+            //If no content added yet, return a warning text.
+            if(ContentList == null)
+            {
+                HTMLContext += Core.Strings.WarningAddContent + "</ol>";
+            }
+            foreach (var item in ContentList)
+            {   
+                int numberofDashes = item.DisplayName.Count(f => f == '-');
+                if (count>numberofDashes || item == ContentList.First())
+                {
+                    string olClosers = new StringBuilder().Insert(0, "</ol>", count - numberofDashes).ToString();
+                    //  item == ContentList.First() ? "<li class='dd-item'><div class='dd-handle'>" + item.DisplayName + "</div></li></ol>" : 
+                    HTMLContext += olClosers + "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div></li>";
+                    count = numberofDashes;
+                }
+                else if (count < numberofDashes)
+                {
+                    HTMLContext += "<ol class='dd-list'>" + "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div>";
+                    count = numberofDashes;
+                }
+                else if(count == numberofDashes)
+                {
+                    HTMLContext += "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div></li>";
+                }
+                if(item == ContentList.Last())
+                {
+                    HTMLContext += new StringBuilder().Insert(0, "</li></ol>", numberofDashes + 1).ToString();
+                }
+            }
+            return HTMLContext;
+        }
 
         static public List<Core.Models.Category.CategoryItem> GetAllCategories()
         {
@@ -32,25 +66,20 @@ namespace Trial.Core.Helpers.Category
                 foreach (var parent in parents)
                 {
                     parent.DisplayName = parent.Name;
-                    NestedListHTML += "<li class='dd-item'><div class='dd-handle'>" + parent.DisplayName + "</div>\n";
                     parent.Categories = GetAllSubCategories(parent, all, parent.CategoryRow);
-                    NestedListHTML += "</li>\n";
                     lst.Add(parent);
                     lst.AddRange(parent.Categories);
                 }
-                NestedListHTML += "</ol>\n";
                 return lst;
             }
         }
-        
+
 
         static private List<Core.Models.Category.CategoryItem> GetAllSubCategories(Core.Models.Category.CategoryItem parent, List<Core.Models.Category.CategoryItem> categories, int row)
         {
-            
             var lst = new List<Core.Models.Category.CategoryItem>();
             row++;
             var result = categories.Where(x => x.ParentId == parent.Id).ToList();
-            NestedListHTML += result != null ? "<ol class='dd-list'>\n" : "";
             foreach (var r in result)
             {
                 var display = "";
@@ -59,15 +88,12 @@ namespace Trial.Core.Helpers.Category
                     display += "-";
                 }
                 r.DisplayName = $"{display} {r.Name}";
-
-                NestedListHTML += "<li class='dd-item'><div class='dd-handle'>" + r.DisplayName + "</div></li>\n";
                 r.CategoryRow = row;
                 r.Categories = GetAllSubCategories(r, categories, row);
-                
+
                 lst.Add(r);
                 lst.AddRange(r.Categories);
             }
-            NestedListHTML += result != null ? "</ol>\n" : "";
             return lst;
         }
 

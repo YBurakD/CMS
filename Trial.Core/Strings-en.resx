@@ -141,6 +141,9 @@
   <data name="CategoryNameEmpty" xml:space="preserve">
     <value>Category Name Empty</value>
   </data>
+  <data name="CategoryType" xml:space="preserve">
+    <value>Category Type</value>
+  </data>
   <data name="ContentBody" xml:space="preserve">
     <value>Content Body</value>
   </data>
@@ -323,6 +326,9 @@
   </data>
   <data name="UserNotFound" xml:space="preserve">
     <value>User Not Found</value>
+  </data>
+  <data name="WarningAddContent" xml:space="preserve">
+    <value>Please add content.</value>
   </data>
   <data name="WrongPassword" xml:space="preserve">
     <value>Wrong Password</value>

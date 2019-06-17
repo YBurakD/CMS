@@ -27,11 +27,12 @@
                 }
             });
         }
+        
     };
 
     p._ckeditor = function () {
         CKEDITOR.replace('Body');
-    }
+    };
 
     window.trial.AppCategory = new AppCategory;
 }(jQuery));

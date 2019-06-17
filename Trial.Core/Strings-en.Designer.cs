@@ -133,6 +133,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Type.
+        /// </summary>
+        public static string CategoryType {
+            get {
+                return ResourceManager.GetString("CategoryType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content Body.
         /// </summary>
         public static string ContentBody {
@@ -678,6 +687,15 @@ namespace Trial.Core {
         public static string UserNotFound {
             get {
                 return ResourceManager.GetString("UserNotFound", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please add content..
+        /// </summary>
+        public static string WarningAddContent {
+            get {
+                return ResourceManager.GetString("WarningAddContent", resourceCulture);
             }
         }
         
