@@ -628,6 +628,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Update Category.
+        /// </summary>
+        public static string UpdateCategory {
+            get {
+                return ResourceManager.GetString("UpdateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Profile.
         /// </summary>
         public static string UpdateProfile {

@@ -297,6 +297,9 @@
   <data name="Update" xml:space="preserve">
     <value>Güncelle</value>
   </data>
+  <data name="UpdateCategory" xml:space="preserve">
+    <value>Kategori Güncelle</value>
+  </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>Profilimi Güncelle</value>
   </data>

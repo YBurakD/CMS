@@ -1,10 +1,13 @@
-﻿@model List<Trial.Core.Models.Category.CategoryItem>
+﻿@model Trial.Core.Models.Category.CategoryPageItem
 @{
     ViewBag.Title = Trial.Core.Strings.Categories;
     Layout = "~/Areas/Admin/Views/Shared/_PanelLayout.cshtml";
 }
 <link href="~/Content/nestable.css" rel="stylesheet" />
 <script src="~/Scripts/jquery.nestable.js"></script>
+<script>
+    var sortUrl = '@Url.Action("Sort","Category")';
+</script>
 <script src="~/Scripts/AppCategory.js"></script>
 
 <section class="section-body">
@@ -16,7 +19,7 @@
         </div>
         <div class="card-body">
             <div class="dd jsCategories">
-                @Html.Raw(Trial.Core.Helpers.Category.CategoryHelper.HTMLifier(Trial.Core.Helpers.Category.CategoryHelper.GetAllCategories()))
+                @Html.Raw(Model.CategoryHtml)
             </div>
         </div>
     </div>

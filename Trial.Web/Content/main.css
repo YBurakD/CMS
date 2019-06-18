@@ -1,0 +1,15 @@
+.dd {
+    max-width: 100% !important;
+}
+.dd-handle {
+    height: 46px !important;
+}
+.dd-item > button {
+    height: 35px !important;
+}
+span.dd-name {
+    font-size: 15px;
+    font-weight: 200;
+    position: absolute;
+    padding: 6px;
+}

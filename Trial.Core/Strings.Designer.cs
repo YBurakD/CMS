@@ -601,6 +601,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kategori Güncelle.
+        /// </summary>
+        public static string UpdateCategory {
+            get {
+                return ResourceManager.GetString("UpdateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Profilimi Güncelle.
         /// </summary>
         public static string UpdateProfile {

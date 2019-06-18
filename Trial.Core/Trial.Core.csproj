@@ -89,6 +89,8 @@
     <Compile Include="Helpers\Category\CategoryHelper.cs" />
     <Compile Include="Helpers\User\UserHelper.cs" />
     <Compile Include="Models\Category\CategoryItem.cs" />
+    <Compile Include="Models\Category\CategoryPageItem.cs" />
+    <Compile Include="Models\Category\CategorySortItem.cs" />
     <Compile Include="Models\Content\ContentItem.cs" />
     <Compile Include="Models\Page\PageItem.cs" />
     <Compile Include="Models\User\UserItem.cs" />

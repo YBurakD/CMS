@@ -8,17 +8,42 @@ namespace Trial.Core.Helpers.Category
 {
     public class CategoryHelper : BaseHelper
     {
-        /*
-        * <ol class='dd-list'>
-            <li class='dd-item'><div class='dd-handle'>Item 1</div></li>
-            <li class='dd-item'><div class='dd-handle'>Item 2</div></li>
-            <li class='dd-item'><div class='dd-handle'>Item 3</div>
-                <ol class='dd-list'>
-                    <li class='dd-item' data-id='4'><div class='dd-handle'>Item 4</div></li>
-                </ol>
-            </li>
-        </ol>
-        */
+        static public void Sort(Core.Models.Category.CategorySortItem sort)
+        {
+            using (var db = new Core.DataModel.Entities())
+            {
+                var categories = (from i in db.Categories where sort.SortList.Contains(i.Id) select i).ToList();
+                foreach (var category in categories)
+                {
+                    if(category.Id == sort.SourceId)
+                    {
+                        category.ParentId = sort.ParentId;
+                    }
+                    category.Row = sort.SortList.IndexOf(category.Id);
+                }
+                db.SaveChanges();
+            }
+        }
+
+
+
+        static public string CategoryList(List<Core.Models.Category.CategoryItem> categories)
+        {
+            var html = "<ol class='dd-list'>";
+            foreach (var category in categories)
+            {
+                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
+                if (category.Categories?.Count > 0)
+                {
+                    html += CategoryList(category.Categories);
+                }
+                html += "</li>";
+            }
+            html += "</ol>";
+            return html;
+        }
+
+
         static public string HTMLifier(List<Models.Category.CategoryItem> ContentList)
         {
             string HTMLContext = "<ol class='dd-list'>";
@@ -34,23 +59,23 @@ namespace Trial.Core.Helpers.Category
                 int numberofDashes = item.DisplayName.Count(f => f == '-');
                 if (count>numberofDashes || item == ContentList.First())
                 {
-                    string olClosers = new StringBuilder().Insert(0, "</ol>", count - numberofDashes).ToString();
-                    //  item == ContentList.First() ? "<li class='dd-item'><div class='dd-handle'>" + item.DisplayName + "</div></li></ol>" : 
-                    HTMLContext += olClosers + "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div></li>";
+                    string olClosers = new StringBuilder().Insert(0, "</li>\n</ol>\n", count - numberofDashes).ToString() + "</li>";
+                    //  numberofDashes!=0 ? "</li>\n" + olClosers + " < li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n" : 
+                    HTMLContext += olClosers + "<li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n";
                     count = numberofDashes;
                 }
-                else if (count < numberofDashes)
+                else if (count < numberofDashes )
                 {
-                    HTMLContext += "<ol class='dd-list'>" + "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div>";
+                    HTMLContext += "<ol class='dd-list'>" + "<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "\n</div>\n";
                     count = numberofDashes;
                 }
                 else if(count == numberofDashes)
                 {
-                    HTMLContext += "<li class='dd-item'><div class='dd-handle'>" + item.Name + "</div></li>";
+                    HTMLContext += "</li>\n<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "</div>\n";
                 }
                 if(item == ContentList.Last())
                 {
-                    HTMLContext += new StringBuilder().Insert(0, "</li></ol>", numberofDashes + 1).ToString();
+                    HTMLContext += new StringBuilder().Insert(0, "</li>\n</ol>\n", numberofDashes + 1).ToString();
                 }
             }
             return HTMLContext;
@@ -60,22 +85,47 @@ namespace Trial.Core.Helpers.Category
         {
             using (var db = new DataModel.Entities())
             {
-                var lst = new List<Core.Models.Category.CategoryItem>();
                 var all = All();
                 var parents = all.Where(x => x.ParentId == null).ToList();
                 foreach (var parent in parents)
                 {
                     parent.DisplayName = parent.Name;
                     parent.Categories = GetAllSubCategories(parent, all, parent.CategoryRow);
+                }
+                return parents;
+            }
+        }
+        static private List<Core.Models.Category.CategoryItem> GetAllSubCategories(Core.Models.Category.CategoryItem parent, List<Core.Models.Category.CategoryItem> categories, int row)
+        {
+            row++;
+            var lst = new List<Core.Models.Category.CategoryItem>();
+            var result = categories.Where(x => x.ParentId == parent.Id).ToList();
+            foreach (var r in result)
+            {
+                r.Categories = GetAllSubCategories(r, categories, row);
+                lst.Add(r);
+            }
+            return lst;
+        }
+
+        static public List<Core.Models.Category.CategoryItem> GetAllCategoriesForList()
+        {
+            using (var db = new DataModel.Entities())
+            {
+                var lst = new List<Core.Models.Category.CategoryItem>();
+                var all = All();
+                var parents = all.Where(x => x.ParentId == null).ToList();
+                foreach (var parent in parents)
+                {
+                    parent.DisplayName = parent.Name;
                     lst.Add(parent);
-                    lst.AddRange(parent.Categories);
+                    lst.AddRange(GetAllSubCategoriesList(parent, all, parent.CategoryRow));
                 }
                 return lst;
             }
         }
 
-
-        static private List<Core.Models.Category.CategoryItem> GetAllSubCategories(Core.Models.Category.CategoryItem parent, List<Core.Models.Category.CategoryItem> categories, int row)
+        static private List<Core.Models.Category.CategoryItem> GetAllSubCategoriesList(Core.Models.Category.CategoryItem parent, List<Core.Models.Category.CategoryItem> categories, int row)
         {
             var lst = new List<Core.Models.Category.CategoryItem>();
             row++;
@@ -89,15 +139,36 @@ namespace Trial.Core.Helpers.Category
                 }
                 r.DisplayName = $"{display} {r.Name}";
                 r.CategoryRow = row;
-                r.Categories = GetAllSubCategories(r, categories, row);
-
                 lst.Add(r);
-                lst.AddRange(r.Categories);
+                lst.AddRange(GetAllSubCategoriesList(r, categories, row));
             }
             return lst;
         }
 
 
+        static public Core.Models.Category.CategoryItem Get(Guid id)
+        {
+            using (var db = new DataModel.Entities())
+            {
+                var list = (from i in db.Categories
+                            where i.Deleted == null && i.Id == id
+                            orderby i.Row
+                            select new Core.Models.Category.CategoryItem()
+                            {
+                                Id = i.Id,
+                                Name = i.Name,
+                                Body = i.Body,
+                                ParentId = i.ParentId,
+                                Row = i.Row,
+                                UserId = i.UserId,
+                                Type = i.Type,
+                                Status = i.Status,
+                                Created = i.Created,
+                                Updated = i.Updated
+                            }).SingleOrDefault();
+                return list;
+            }
+        }
         static public List<Core.Models.Category.CategoryItem> All()
         {
             using (var db = new DataModel.Entities())

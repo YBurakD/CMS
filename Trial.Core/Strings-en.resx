@@ -306,6 +306,9 @@
   <data name="UpdateButton" xml:space="preserve">
     <value>Update</value>
   </data>
+  <data name="UpdateCategory" xml:space="preserve">
+    <value>Update Category</value>
+  </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>Update Profile</value>
   </data>
