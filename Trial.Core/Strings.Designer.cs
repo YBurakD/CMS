@@ -133,6 +133,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kategori Durumu.
+        /// </summary>
+        public static string CategoryStatus {
+            get {
+                return ResourceManager.GetString("CategoryStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kategori Tipi.
         /// </summary>
         public static string CategoryType {
@@ -178,6 +187,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İçerikler.
+        /// </summary>
+        public static string Contents {
+            get {
+                return ResourceManager.GetString("Contents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İçerik Durumu.
+        /// </summary>
+        public static string ContentStatus {
+            get {
+                return ResourceManager.GetString("ContentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to İçerik Başlığı.
         /// </summary>
         public static string ContentTitle {
@@ -192,6 +219,15 @@ namespace Trial.Core {
         public static string ContentTitleEmpty {
             get {
                 return ResourceManager.GetString("ContentTitleEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İçerik Türü.
+        /// </summary>
+        public static string ContentType {
+            get {
+                return ResourceManager.GetString("ContentType", resourceCulture);
             }
         }
         
@@ -214,11 +250,38 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to İçerik Oluştur.
+        /// </summary>
+        public static string CreateContent {
+            get {
+                return ResourceManager.GetString("CreateContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Yeni Oluştur.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Anasayfa.
         /// </summary>
         public static string Dashboard {
             get {
                 return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İçerik Tarihi.
+        /// </summary>
+        public static string Datepicker {
+            get {
+                return ResourceManager.GetString("Datepicker", resourceCulture);
             }
         }
         
@@ -606,6 +669,15 @@ namespace Trial.Core {
         public static string UpdateCategory {
             get {
                 return ResourceManager.GetString("UpdateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to İçeriği Güncelle.
+        /// </summary>
+        public static string UpdateContent {
+            get {
+                return ResourceManager.GetString("UpdateContent", resourceCulture);
             }
         }
         

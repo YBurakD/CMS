@@ -1,0 +1,35 @@
+﻿@model Trial.Core.Models.Content.ContentPageItem
+@{
+    ViewBag.Title = Trial.Core.Strings.Contents;
+    Layout = "~/Areas/Admin/Views/Shared/_PanelLayout.cshtml";
+}
+
+<link href="~/Content/nestable.css" rel="stylesheet" />
+<script src="~/Scripts/jquery.nestable.js"></script>
+<script>
+    var ContentUpdateUrl = '@Url.Action("Update","Content")'
+    var AddContentToCategory = '@Url.Action("Create","Content")'
+</script>
+<script src="~/Scripts/AppContent.js"></script>
+
+<section class="section-body">
+    <div class="card">
+        <div class="card-head">
+            <header>
+                @Trial.Core.Strings.Contents
+            </header>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="submit" value=@Trial.Core.Strings.CreateNew class="btn btn-primary btn-raised pull-right" />
+                    </div>
+                </div>
+            </div>
+            <div class="dd jsContents">
+                @Html.Raw(Model.ContentHtml)
+            </div>
+        </div>
+    </div>
+</section>

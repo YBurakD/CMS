@@ -128,6 +128,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\CategoryController.cs" />
+    <Compile Include="Areas\Admin\Controllers\ContentController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
     <Compile Include="Areas\User\Controllers\AccountController.cs" />
     <Compile Include="Areas\User\Controllers\HomeController.cs" />
@@ -462,10 +463,14 @@
     <Content Include="ckeditor\plugins\wsc\README.md" />
     <Content Include="ckeditor\README.md" />
     <Content Include="Areas\Admin\Views\Category\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Update.cshtml" />
+    <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Images\login.jpg" />
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\AppCategory.js" />
+    <Content Include="Scripts\AppContent.js" />
     <Content Include="Scripts\AppForm.js" />
     <Content Include="Scripts\AppNavigation.js" />
     <Content Include="Scripts\AppOffcanvas.js" />

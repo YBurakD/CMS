@@ -141,6 +141,9 @@
   <data name="CategoryNameEmpty" xml:space="preserve">
     <value>Category Name Empty</value>
   </data>
+  <data name="CategoryStatus" xml:space="preserve">
+    <value>Category Status</value>
+  </data>
   <data name="CategoryType" xml:space="preserve">
     <value>Category Type</value>
   </data>
@@ -156,11 +159,20 @@
   <data name="ContentDescriptionEmpty" xml:space="preserve">
     <value>Content Description Empty</value>
   </data>
+  <data name="Contents" xml:space="preserve">
+    <value>Contents</value>
+  </data>
+  <data name="ContentStatus" xml:space="preserve">
+    <value>Content Status</value>
+  </data>
   <data name="ContentTitle" xml:space="preserve">
     <value>Content Title</value>
   </data>
   <data name="ContentTitleEmpty" xml:space="preserve">
     <value>Content Title Empty</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>Content Type</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Sign up</value>
@@ -168,11 +180,20 @@
   <data name="CreateCategory" xml:space="preserve">
     <value>Create Category</value>
   </data>
+  <data name="CreateContent" xml:space="preserve">
+    <value>Create Content</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Create New</value>
+  </data>
   <data name="CreateTitle" xml:space="preserve">
     <value>Sign in</value>
   </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Main Page</value>
+  </data>
+  <data name="Datepicker" xml:space="preserve">
+    <value>Content Date</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Default</value>
@@ -308,6 +329,9 @@
   </data>
   <data name="UpdateCategory" xml:space="preserve">
     <value>Update Category</value>
+  </data>
+  <data name="UpdateContent" xml:space="preserve">
+    <value>Update Content</value>
   </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>Update Profile</value>

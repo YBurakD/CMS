@@ -15,7 +15,7 @@ namespace Trial.Core.Helpers.Category
                 var categories = (from i in db.Categories where sort.SortList.Contains(i.Id) select i).ToList();
                 foreach (var category in categories)
                 {
-                    if(category.Id == sort.SourceId)
+                    if (category.Id == sort.SourceId)
                     {
                         category.ParentId = sort.ParentId;
                     }
@@ -32,7 +32,7 @@ namespace Trial.Core.Helpers.Category
             var html = "<ol class='dd-list'>";
             foreach (var category in categories)
             {
-                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
+                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsUpdateBtn' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
                 if (category.Categories?.Count > 0)
                 {
                     html += CategoryList(category.Categories);
@@ -50,30 +50,30 @@ namespace Trial.Core.Helpers.Category
             int count = 0;
 
             //If no content added yet, return a warning text.
-            if(ContentList == null)
+            if (ContentList == null)
             {
                 HTMLContext += Core.Strings.WarningAddContent + "</ol>";
             }
             foreach (var item in ContentList)
-            {   
+            {
                 int numberofDashes = item.DisplayName.Count(f => f == '-');
-                if (count>numberofDashes || item == ContentList.First())
+                if (count > numberofDashes || item == ContentList.First())
                 {
                     string olClosers = new StringBuilder().Insert(0, "</li>\n</ol>\n", count - numberofDashes).ToString() + "</li>";
                     //  numberofDashes!=0 ? "</li>\n" + olClosers + " < li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n" : 
                     HTMLContext += olClosers + "<li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n";
                     count = numberofDashes;
                 }
-                else if (count < numberofDashes )
+                else if (count < numberofDashes)
                 {
                     HTMLContext += "<ol class='dd-list'>" + "<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "\n</div>\n";
                     count = numberofDashes;
                 }
-                else if(count == numberofDashes)
+                else if (count == numberofDashes)
                 {
                     HTMLContext += "</li>\n<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "</div>\n";
                 }
-                if(item == ContentList.Last())
+                if (item == ContentList.Last())
                 {
                     HTMLContext += new StringBuilder().Insert(0, "</li>\n</ol>\n", numberofDashes + 1).ToString();
                 }
@@ -107,7 +107,34 @@ namespace Trial.Core.Helpers.Category
             }
             return lst;
         }
-
+        static public List<Core.Models.Category.CategoryItem> GetAllCategoryItemsSorted()
+        {
+            using (var db = new DataModel.Entities())
+            {
+                List<Core.Models.Category.CategoryItem> list = new List<Core.Models.Category.CategoryItem>();
+                var query = (from i in db.Categories
+                        where i.Deleted == null
+                        orderby i.Name ascending
+                        select new Core.Models.Category.CategoryItem()
+                        {
+                            Id = i.Id,
+                            Name = i.Name,
+                            Body = i.Body,
+                            ParentId = i.ParentId,
+                            Row = i.Row,
+                            UserId = i.UserId,
+                            Type = i.Type,
+                            Status = i.Status,
+                            Created = i.Created,
+                            Updated = i.Updated
+                        });
+                foreach (var item in query)
+                {
+                    list.Add(item);
+                }
+                return list;
+            }
+        }
         static public List<Core.Models.Category.CategoryItem> GetAllCategoriesForList()
         {
             using (var db = new DataModel.Entities())
@@ -219,6 +246,8 @@ namespace Trial.Core.Helpers.Category
             dbCategory.Name = !string.IsNullOrEmpty(category.Name) && category.Name != dbCategory.Name ? category.Name : dbCategory.Name;
             dbCategory.Body = !string.IsNullOrEmpty(category.Body) && category.Body != dbCategory.Body ? category.Body : dbCategory.Body;
             dbCategory.ParentId = category.ParentId != null && category.ParentId != dbCategory.ParentId ? category.ParentId : dbCategory.ParentId;
+            dbCategory.Type = category.Type != dbCategory.Type ? category.Type : dbCategory.Type;
+            dbCategory.Status = category.Status != dbCategory.Status ? category.Status : dbCategory.Status;
             db.SaveChanges();
             return category;
         }

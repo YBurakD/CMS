@@ -35,7 +35,8 @@ namespace Trial.Web
                 "~/Content/bootstrap-tagsinput.css",
                 "~/Content/datatables.min.css",
                 "~/Content/jquery.fancybox.min.css",
-                "~/Content/main.css"
+                "~/Content/main.css",
+                "~/Content/datepicker3.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/panel/validate").Include(

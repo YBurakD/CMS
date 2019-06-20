@@ -28,5 +28,7 @@ namespace Trial.Core.DataModel
         public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Content> Contents { get; set; }
         public virtual DbSet<User> Users { get; set; }
+
+        public System.Data.Entity.DbSet<Trial.Core.Models.Content.ContentItem> ContentItems { get; set; }
     }
 }

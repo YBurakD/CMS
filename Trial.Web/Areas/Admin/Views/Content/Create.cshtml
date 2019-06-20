@@ -1,0 +1,127 @@
+﻿@model Trial.Core.Models.Content.ContentItem
+
+@{
+    ViewBag.Title = Trial.Core.Strings.CreateContent;
+    Layout = "~/Areas/Admin/Views/Shared/_PanelLayout.cshtml";
+}
+
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/Scripts/AppCategory.js"></script>
+
+<section class="section-body">
+    <div class="card">
+        <div class="card-head">
+            <header>
+                @Trial.Core.Strings.CreateContent
+            </header>
+        </div>
+        <div class="card-body">
+
+            @using (Html.BeginForm("Create", "Content", FormMethod.Post, new { @class = "form floating-label" }))
+            {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.LabelFor(model => model.Title)
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.LabelFor(model => model.Description)
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label>@Trial.Core.Strings.CategoryName</label>
+                            <select class="form-control" name="CategoryId">
+                                @{
+                                    foreach (var category in ViewBag.categories)
+                                    {
+                                        var selected = "";
+                                        if (ViewBag.selectedCategory == category.Id)
+                                        {
+                                            selected = "selected";
+                                        }
+                                        
+                                        <option value="@category.Id" @selected>@category.Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.TextAreaFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group control-width-normal">
+                    <div class="input-group date" id="demo-date-format">
+                        <div class="input-group-content">
+                            <input type="text" class="form-control" name="ContentDate">
+                            <label>@Trial.Core.Strings.Datepicker</label>
+                        </div>
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="control-label">@Trial.Core.Strings.ContentType</label> <!--ContentType-->
+                            <br />
+                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Content.ContentType)))
+                            {
+                                var selected = "";
+                                if (type.Value == "1")
+                                {
+                                    selected = "checked";
+                                }
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Type" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                </label>
+                            }
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="control-label">@Trial.Core.Strings.ContentStatus</label><!--ContentStatus-->
+                            <br />
+                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Content.ContentStatus)))
+                            {
+                                var selected = "";
+                                if (type.Value == "1")
+                                {
+                                    selected = "checked";
+                                }
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Status" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                </label>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <div class="col-sm-6">
+                        <input type="submit" value=@Trial.Core.Strings.Save class="btn btn-default pull-left" />
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</section>
+<script type="text/javascript">
+    $(function () {
+        $('#demo-date-format').datetimepicker({
+        });
+    });
+</script>

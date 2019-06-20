@@ -26,7 +26,7 @@ namespace Trial.Core.Models.Content
         public Guid CategoryId { get; set; }
         public Guid UserId { get; set; }
         public byte? Type { get; set; }
-        public byte Status { get; set; }
+        public Core.Enums.Content.ContentStatus Status { get; set; }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }

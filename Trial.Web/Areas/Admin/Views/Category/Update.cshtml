@@ -12,12 +12,12 @@
     <div class="card">
         <div class="card-head">
             <header>
-                @Trial.Core.Strings.CreateCategory
+                @Trial.Core.Strings.UpdateCategory
             </header>
         </div>
         <div class="card-body">
 
-            @using (Html.BeginForm("Create", "Category", FormMethod.Post, new { @class = "form floating-label" }))
+            @using (Html.BeginForm("Update", "Category", FormMethod.Post, new { @class = "form floating-label" }))
             {
                 @Html.AntiForgeryToken()
 
@@ -39,7 +39,12 @@
                                 {
                                     foreach (var category in Model.Categories)
                                     {
-                                        <option value="@category.Id">@category.DisplayName</option>
+                                        var selected = "";
+                                        if (category.Id == Model.ParentId)
+                                        {
+                                            selected = "selected";
+                                        }
+                                        <option value="@category.Id" @selected>@category.DisplayName</option>
                                     }
                                 }
                             </select>
@@ -60,27 +65,29 @@
                             @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryType)))
                             {
                                 var selected = "";
-                                if (type.Value == "1")
+
+                                if (Enum.Parse(typeof(Trial.Core.Enums.Category.CategoryType), type.Value).ToString() == Model.Type.ToString())
                                 {
                                     selected = "checked";
                                 }
                                 <label class="radio-inline radio-styled">
-                                    <input type="radio" name="Type" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                    <input type="radio" name="Type" value="@type.Value" @selected><span>@type.Text</span>
                                 </label>
                             }
                         </div>
                         <div class="col-sm-6">
-                            <label class="control-label">Kategori Durumu</label>
+                            <label class="control-label">@Trial.Core.Strings.CategoryStatus</label>
                             <br />
                             @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryStatus)))
                             {
                                 var selected = "";
-                                if (type.Value == "1")
+                                
+                                if (Enum.Parse(typeof(Trial.Core.Enums.Category.CategoryStatus), type.Value).ToString() == Model.Status.ToString())
                                 {
                                     selected = "checked";
                                 }
                                 <label class="radio-inline radio-styled">
-                                    <input type="radio" name="Status" value="@type.Value" checked="@selected"><span>@type.Text</span>
+                                    <input type="radio" name="Status" value="@type.Value" @selected><span>@type.Text</span>
                                 </label>
                             }
                         </div>
@@ -96,5 +103,4 @@
         </div>
     </div>
 </section>
-
 

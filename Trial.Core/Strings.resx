@@ -141,6 +141,9 @@
   <data name="CategoryNameEmpty" xml:space="preserve">
     <value>Kategori adı boş bırakılamaz.</value>
   </data>
+  <data name="CategoryStatus" xml:space="preserve">
+    <value>Kategori Durumu</value>
+  </data>
   <data name="CategoryType" xml:space="preserve">
     <value>Kategori Tipi</value>
   </data>
@@ -156,11 +159,20 @@
   <data name="ContentDescriptionEmpty" xml:space="preserve">
     <value>İçerik Açıklaması boş bırakılamaz.</value>
   </data>
+  <data name="Contents" xml:space="preserve">
+    <value>İçerikler</value>
+  </data>
+  <data name="ContentStatus" xml:space="preserve">
+    <value>İçerik Durumu</value>
+  </data>
   <data name="ContentTitle" xml:space="preserve">
     <value>İçerik Başlığı</value>
   </data>
   <data name="ContentTitleEmpty" xml:space="preserve">
     <value>İçerik Başlığı boş bırakılamaz.</value>
+  </data>
+  <data name="ContentType" xml:space="preserve">
+    <value>İçerik Türü</value>
   </data>
   <data name="Create" xml:space="preserve">
     <value>Kaydol</value>
@@ -168,8 +180,17 @@
   <data name="CreateCategory" xml:space="preserve">
     <value>Kategori Oluştur</value>
   </data>
+  <data name="CreateContent" xml:space="preserve">
+    <value>İçerik Oluştur</value>
+  </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Yeni Oluştur</value>
+  </data>
   <data name="Dashboard" xml:space="preserve">
     <value>Anasayfa</value>
+  </data>
+  <data name="Datepicker" xml:space="preserve">
+    <value>İçerik Tarihi</value>
   </data>
   <data name="Default" xml:space="preserve">
     <value>Normal</value>
@@ -299,6 +320,9 @@
   </data>
   <data name="UpdateCategory" xml:space="preserve">
     <value>Kategori Güncelle</value>
+  </data>
+  <data name="UpdateContent" xml:space="preserve">
+    <value>İçeriği Güncelle</value>
   </data>
   <data name="UpdateProfile" xml:space="preserve">
     <value>Profilimi Güncelle</value>

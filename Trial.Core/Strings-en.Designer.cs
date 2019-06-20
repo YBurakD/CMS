@@ -133,6 +133,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Status.
+        /// </summary>
+        public static string CategoryStatus {
+            get {
+                return ResourceManager.GetString("CategoryStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category Type.
         /// </summary>
         public static string CategoryType {
@@ -178,6 +187,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Contents.
+        /// </summary>
+        public static string Contents {
+            get {
+                return ResourceManager.GetString("Contents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content Status.
+        /// </summary>
+        public static string ContentStatus {
+            get {
+                return ResourceManager.GetString("ContentStatus", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Content Title.
         /// </summary>
         public static string ContentTitle {
@@ -192,6 +219,15 @@ namespace Trial.Core {
         public static string ContentTitleEmpty {
             get {
                 return ResourceManager.GetString("ContentTitleEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content Type.
+        /// </summary>
+        public static string ContentType {
+            get {
+                return ResourceManager.GetString("ContentType", resourceCulture);
             }
         }
         
@@ -214,6 +250,24 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Create Content.
+        /// </summary>
+        public static string CreateContent {
+            get {
+                return ResourceManager.GetString("CreateContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Create New.
+        /// </summary>
+        public static string CreateNew {
+            get {
+                return ResourceManager.GetString("CreateNew", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sign in.
         /// </summary>
         public static string CreateTitle {
@@ -228,6 +282,15 @@ namespace Trial.Core {
         public static string Dashboard {
             get {
                 return ResourceManager.GetString("Dashboard", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Content Date.
+        /// </summary>
+        public static string Datepicker {
+            get {
+                return ResourceManager.GetString("Datepicker", resourceCulture);
             }
         }
         
@@ -633,6 +696,15 @@ namespace Trial.Core {
         public static string UpdateCategory {
             get {
                 return ResourceManager.GetString("UpdateCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update Content.
+        /// </summary>
+        public static string UpdateContent {
+            get {
+                return ResourceManager.GetString("UpdateContent", resourceCulture);
             }
         }
         
