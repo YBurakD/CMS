@@ -8,25 +8,29 @@
 <script src="~/Scripts/jquery.nestable.js"></script>
 <script>
     var ContentUpdateUrl = '@Url.Action("Update","Content")'
-    var AddContentToCategory = '@Url.Action("Create","Content")'
+    var ContentIndexUrl = '@Url.Action("Index","Content")'
+    var AddContent = '@Url.Action("Create","Content")'
 </script>
 <script src="~/Scripts/AppContent.js"></script>
 
 <section class="section-body">
     <div class="card">
         <div class="card-head">
-            <header>
-                @Trial.Core.Strings.Contents
-            </header>
+            <div class="col-sm-6">
+                <header>
+                    @Trial.Core.Strings.Contents
+                </header>
+            </div>
+            @{
+                if (ViewBag.CreateButton) {
+                <div class="col-sm-12">
+                    <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn">@Trial.Core.Strings.CreateNew</a>
+                </div>
+                }
+            }
         </div>
         <div class="card-body">
-            <div class="row">
-                <div class="form-group">
-                    <div class="col-sm-12">
-                        <input type="submit" value=@Trial.Core.Strings.CreateNew class="btn btn-primary btn-raised pull-right" />
-                    </div>
-                </div>
-            </div>
+
             <div class="dd jsContents">
                 @Html.Raw(Model.ContentHtml)
             </div>

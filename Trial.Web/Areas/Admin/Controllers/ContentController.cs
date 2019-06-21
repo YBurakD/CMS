@@ -11,11 +11,21 @@ namespace Trial.Web.Areas.Admin.Controllers
     {
         // GET: Admin/Content
         [HttpGet]
-        public ActionResult Index()
+        public ActionResult Index(Guid? id)
         {
             try
             {
-                var html = Core.Helpers.Content.ContentHelper.ContentHtml();
+                string html;
+                if (id == null)
+                {
+                    html = Core.Helpers.Content.ContentHelper.ContentHtml();
+                    ViewBag.CreateButton = true;
+                }
+                else
+                {
+                    html = Core.Helpers.Content.ContentHelper.ContentHtml((Guid)id);
+                    ViewBag.CreateButton = false;
+                }
                 return View(new Core.Models.Content.ContentPageItem()
                 {
                     ContentHtml = html
@@ -35,11 +45,13 @@ namespace Trial.Web.Areas.Admin.Controllers
             {
                 if (id != null && Core.Helpers.Category.CategoryHelper.Get((Guid)id) != null)
                 { ViewBag.selectedCategory = id; }
-                    ViewBag.categories = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList();
-                    var content = new Core.Models.Content.ContentItem
-                    {
-                    };
-                    return View(content);
+                Core.Models.Content.ContentPageItem contentPage = new Core.Models.Content.ContentPageItem
+                {
+                    categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList(),
+                    content = new Core.Models.Content.ContentItem()
+                   
+                };
+                    return View(contentPage);
             }
             catch (Exception ex)
             {
@@ -49,11 +61,11 @@ namespace Trial.Web.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(Core.Models.Content.ContentItem content)
+        public ActionResult Create(Core.Models.Content.ContentPageItem contentPageItem)
         {
             try
             {
-                ViewBag.categories = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList();
+                var content = contentPageItem.content;
                 var user = (Core.Models.User.UserItem)(ViewBag.User);
                 if (ModelState.IsValid)
                 {

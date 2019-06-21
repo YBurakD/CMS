@@ -73,5 +73,6 @@
             window.location.href = updateUrl + "/" + button.getAttribute("data-id");
         }
     };
+
     window.trial.AppCategory = new AppCategory;
 }(jQuery));

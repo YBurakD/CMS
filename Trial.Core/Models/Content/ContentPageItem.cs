@@ -8,6 +8,8 @@ namespace Trial.Core.Models.Content
 {
     public class ContentPageItem
     {
+        public ContentItem content { get; set; }
+        public List<Category.CategoryItem> categoryList { get; set; }
         public string ContentHtml { get; set; }
     }
 }
