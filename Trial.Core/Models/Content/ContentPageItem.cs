@@ -11,5 +11,8 @@ namespace Trial.Core.Models.Content
         public ContentItem content { get; set; }
         public List<Category.CategoryItem> categoryList { get; set; }
         public string ContentHtml { get; set; }
+        public string categoryName { get; set; }
+        public bool isCategoryChosen { get; set; }
+        public Guid? categoryId { get; set; }
     }
 }

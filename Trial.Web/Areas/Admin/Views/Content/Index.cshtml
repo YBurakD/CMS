@@ -18,19 +18,29 @@
         <div class="card-head">
             <div class="col-sm-6">
                 <header>
-                    @Trial.Core.Strings.Contents
+                    @if (Model.isCategoryChosen)
+                    {
+                        @Trial.Core.Strings.Contents;
+                    }
+                    else
+                    {
+                        @Model.categoryName
+                    }
                 </header>
             </div>
-            @{
-                if (ViewBag.CreateButton) {
-                <div class="col-sm-12">
-                    <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn">@Trial.Core.Strings.CreateNew</a>
-                </div>
+            <div class="col-sm-12">
+                @if (Model.isCategoryChosen)
+                {
+                <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn" data-id="" >@Trial.Core.Strings.CreateNew</a>
                 }
-            }
+                else
+                {
+                <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn" data-id="@Model.categoryId">@Trial.Core.Strings.CreateNew</a>
+                }
+                
+            </div>
         </div>
         <div class="card-body">
-
             <div class="dd jsContents">
                 @Html.Raw(Model.ContentHtml)
             </div>

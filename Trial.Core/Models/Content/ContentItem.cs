@@ -30,5 +30,6 @@ namespace Trial.Core.Models.Content
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }
+        public List<Category.CategoryItem> Categories { get; set; }
     }
 }

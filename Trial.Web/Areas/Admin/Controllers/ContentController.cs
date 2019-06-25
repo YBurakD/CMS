@@ -16,24 +16,23 @@ namespace Trial.Web.Areas.Admin.Controllers
             try
             {
                 string html;
+                var content = new Core.Models.Content.ContentPageItem();
                 if (id == null)
                 {
                     html = Core.Helpers.Content.ContentHelper.ContentHtml();
-                    ViewBag.CreateButton = true;
                 }
                 else
                 {
                     html = Core.Helpers.Content.ContentHelper.ContentHtml((Guid)id);
-                    ViewBag.CreateButton = false;
+                    content.categoryName = Core.Helpers.Category.CategoryHelper.Get((Guid)id).Name;
+                    content.categoryId = id;
                 }
-                return View(new Core.Models.Content.ContentPageItem()
-                {
-                    ContentHtml = html
-                });
+                content.ContentHtml = html;
+                content.isCategoryChosen = (id == null);
+                return View(content);
             }
             catch (Exception ex)
             {
-
                 TempData["Error"] = ex.Message;
             }
             return View();
@@ -43,15 +42,16 @@ namespace Trial.Web.Areas.Admin.Controllers
         {
             try
             {
-                if (id != null && Core.Helpers.Category.CategoryHelper.Get((Guid)id) != null)
-                { ViewBag.selectedCategory = id; }
-                Core.Models.Content.ContentPageItem contentPage = new Core.Models.Content.ContentPageItem
+                if(id == null)
                 {
-                    categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList(),
-                    content = new Core.Models.Content.ContentItem()
-                   
+                    return RedirectToAction(nameof(Index));
+                }
+                var content = new Core.Models.Content.ContentItem
+                {
+                    Categories = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList(),
+                    CategoryId = (Guid)id
                 };
-                    return View(contentPage);
+                return View(content);
             }
             catch (Exception ex)
             {
@@ -61,11 +61,10 @@ namespace Trial.Web.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateInput(false)]
-        public ActionResult Create(Core.Models.Content.ContentPageItem contentPageItem)
+        public ActionResult Create(Core.Models.Content.ContentItem content)
         {
             try
             {
-                var content = contentPageItem.content;
                 var user = (Core.Models.User.UserItem)(ViewBag.User);
                 if (ModelState.IsValid)
                 {
@@ -79,8 +78,8 @@ namespace Trial.Web.Areas.Admin.Controllers
             {
                 TempData["Error"] = ex.Message;
             }
-
-            return View();
+            content.Categories = Core.Helpers.Category.CategoryHelper.GetAllCategoriesForList();
+            return View(content);
         }
         [HttpGet]
         public ActionResult Update(Guid? id)

@@ -4,7 +4,6 @@
         var o = this;
         $(document).ready(function () {
             o.initialize();
-
         });
     };
     var p = AppCategory.prototype;
@@ -43,7 +42,7 @@
         var buttons = document.getElementsByClassName("jsContentCreateBtn"); //returns a nodelist
         for (let i = 0; i < buttons.length; i++) {
             buttons[i].addEventListener("click", function () {
-                window.location.href = AddContent;
+                buttonsControl(this, AddContent);
             }, false);
         }
     };

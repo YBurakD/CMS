@@ -24,16 +24,11 @@ namespace Trial.Core.Helpers.Content
             var html = "<ol class='dd-list'>";
             var category = Helpers.Category.CategoryHelper.Get(id);
             var contents = GetAllContents();
-
-            html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name' style ='font-weight:bold'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentAddBtn' data-id='{category.Id}'><i class='fa fa-plus-square'></i></a></div>";
-            html += "<ol class='dd-list'>";
             foreach (var content in contents)
             {
                 if (content.CategoryId == category.Id)
                     html += $"<li class='dd-item' data-id='{content.Id}'><div class='dd-handle'><span class='dd-name'>{content.Title}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentUpdateBtn' data-id='{content.Id}'><i class='fa fa-edit'></i></a></div></li>";
             }
-            html += "</ol></li>";
-
             html += "</ol>";
             return html;
         }
