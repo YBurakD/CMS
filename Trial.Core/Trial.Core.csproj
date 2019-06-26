@@ -89,12 +89,14 @@
     <Compile Include="Helpers\BaseHelper.cs" />
     <Compile Include="Helpers\Category\CategoryHelper.cs" />
     <Compile Include="Helpers\Content\ContentHelper.cs" />
+    <Compile Include="Helpers\Home\HomeHelper.cs" />
     <Compile Include="Helpers\User\UserHelper.cs" />
     <Compile Include="Models\Category\CategoryItem.cs" />
     <Compile Include="Models\Category\CategoryPageItem.cs" />
     <Compile Include="Models\Category\CategorySortItem.cs" />
     <Compile Include="Models\Content\ContentItem.cs" />
     <Compile Include="Models\Content\ContentPageItem.cs" />
+    <Compile Include="Models\Home\HomePageItem.cs" />
     <Compile Include="Models\Page\PageItem.cs" />
     <Compile Include="Models\User\UserItem.cs" />
     <Compile Include="Models\User\UserLoginItem.cs" />

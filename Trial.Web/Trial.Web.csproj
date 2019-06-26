@@ -417,9 +417,12 @@
     <Content Include="Content\datepicker3.css" />
     <Content Include="Content\fa-brands.min.css" />
     <Content Include="Content\fa-solid.min.css" />
+    <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\fontawesome.min.css" />
+    <Content Include="Content\framework.css" />
     <Content Include="Content\jquery-ui-theme.css" />
     <Content Include="Content\jquery.fancybox.min.css" />
+    <Content Include="Content\layout.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\materialadmin.css" />
     <Content Include="Content\nestable.css" />
@@ -428,6 +431,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Fonts\fa-brands-400.svg" />
     <Content Include="Fonts\fa-solid-900.svg" />
+    <Content Include="Fonts\fontawesome-webfont.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
@@ -466,7 +470,26 @@
     <Content Include="Areas\Admin\Views\Content\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Update.cshtml" />
     <Content Include="Areas\Admin\Views\Content\Index.cshtml" />
+    <Content Include="Fonts\fontawesome-webfont.eot" />
+    <Content Include="Fonts\fontawesome-webfont.ttf" />
+    <Content Include="Fonts\fontawesome-webfont.woff" />
+    <Content Include="Fonts\fontawesome-webfont.woff2" />
+    <Content Include="Fonts\FontAwesome.otf" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <Content Include="Images\demo\100x100.png" />
+    <Content Include="Images\demo\222x100.png" />
+    <Content Include="Images\demo\320x320.png" />
+    <Content Include="Images\demo\480x186-vid.png" />
+    <Content Include="Images\demo\avatar.png" />
+    <Content Include="Images\demo\backgrounds\01.png" />
+    <Content Include="Images\demo\backgrounds\02.png" />
+    <Content Include="Images\demo\backgrounds\03.png" />
+    <Content Include="Images\demo\backgrounds\index.html" />
+    <Content Include="Images\demo\gallery\01.png" />
+    <Content Include="Images\demo\gallery\index.html" />
+    <Content Include="Images\demo\imgl.gif" />
+    <Content Include="Images\demo\imgr.gif" />
+    <Content Include="Images\demo\index.html" />
     <Content Include="Images\login.jpg" />
     <Content Include="Scripts\App.js" />
     <Content Include="Scripts\AppCategory.js" />
@@ -490,8 +513,11 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-migrate-1.2.1.min.js" />
+    <Content Include="Scripts\jquery.backtotop.js" />
     <Content Include="Scripts\jquery.fancybox.min.js" />
     <Content Include="Scripts\jquery.inputmask.bundle.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.mobilemenu.js" />
     <Content Include="Scripts\jquery.nanoscroller.min.js" />
     <Content Include="Scripts\jquery.nestable.js" />
     <Content Include="Scripts\jquery.validate.js" />
@@ -503,6 +529,7 @@
     <Content Include="Scripts\moment.min.js" />
     <Content Include="Scripts\select2.min.js" />
     <Content Include="Scripts\toastr.js" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -512,10 +539,13 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Views\Shared\_HomeLayout.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
+    <Content Include="Views\Shared\_MenuBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

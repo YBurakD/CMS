@@ -18,7 +18,10 @@ namespace Trial.Web.Controllers
         [Route("{*path?}")]
         public ActionResult Index(string path)
         {
-            return View();
+            var categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategories();
+            var pageItem = new Core.Models.Home.HomePageItem();
+            pageItem.MenuBar = Core.Helpers.Home.HomeHelper.htmlMenuBar(categoryList);
+            return View(pageItem);
         }
 
 

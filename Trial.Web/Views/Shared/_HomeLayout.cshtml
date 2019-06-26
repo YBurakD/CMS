@@ -1,0 +1,180 @@
+﻿@model Trial.Core.Models.Home.HomePageItem
+
+@{
+    ViewBag.Title = "_Layout";
+}
+<head>
+    <title>Algenius</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    @Styles.Render("~/home/style")
+    @Scripts.Render("~/home/script")
+</head>
+<body id="top">
+    <div class="wrapper row0">
+        <div id="topbar" class="hoc clear">
+            <div class="fl_left">
+                <ul>
+                    <li><i class="fa fa-phone"></i> +00 (123) 456 7890</li>
+                    <li><i class="fa fa-envelope-o"></i> info@domain.com</li>
+                </ul>
+            </div>
+            <div class="fl_right">
+                <ul>
+                    <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
+                    <li><a href="#">Login</a></li>
+                    <li><a href="#">Register</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    @Html.Partial("~/Views/Shared/_Header.cshtml")
+    @Html.Raw(Model.MenuBar)
+    <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/01.png');">
+        <article id="pageintro" class="hoc clear">
+
+            <h3 class="heading">Eget euismod sagittis nunc sed vehicula</h3>
+            <p>Elit in tempor arcu vitae leo sollicitudin luctus odio porttitor donec velit ante dictum quis justo.</p>
+            <footer><a class="btn" href="#">Tellus et egestas</a></footer>
+
+        </article>
+    </div>
+    <div class="wrapper row3">
+        <main class="hoc container clear">
+            <ul class="nospace group">
+                <li class="one_third first">
+                    <article>
+                        <i class="btmspace-30 fa fa-3x fa-american-sign-language-interpreting"></i>
+                        <h6 class="heading font-x1">Lacinia est libero</h6>
+                        <p class="btmspace-30">Volutpat tellus id consectetur elit risus at augue aliquam eu efficitur quam aliquam nulla magna malesuada quis […]</p>
+                        <footer><a class="btn" href="#">Read More ›</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <i class="btmspace-30 fa fa-3x fa-resistance"></i>
+                        <h6 class="heading font-x1">Pulvinar vel condimentum</h6>
+                        <p class="btmspace-30">Ac purus donec lorem risus porta at tortor non hendrerit commodo ante duis venenatis ut elit id fermentum […]</p>
+                        <footer><a class="btn" href="#">Read More ›</a></footer>
+                    </article>
+                </li>
+                <li class="one_third">
+                    <article>
+                        <i class="btmspace-30 fa fa-3x fa-expeditedssl"></i>
+                        <h6 class="heading font-x1">Phasellus vestibulum auctor</h6>
+                        <p class="btmspace-30">Neque ut facilisis dolor interdum quis morbi ac enim eget nisi tristique facilisis aliquam tempus condimentum eros […]</p>
+                        <footer><a class="btn" href="#">Read More ›</a></footer>
+                    </article>
+                </li>
+            </ul>
+            <div class="clear"></div>
+        </main>
+    </div>
+    <div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
+        <section class="hoc container clear">
+            <div class="sectiontitle">
+                <h6 class="heading">Non aliquet mauris</h6>
+            </div>
+            <div class="group">
+                <div class="one_half first">
+                    <p><strong>Non imperdiet mi praesent lectus</strong></p>
+                    <p>Ex iaculis at odio eu facilisis venenatis lectus proin et malesuada turpis eu blandit quam mauris eu nibh et nibh rhoncus sollicitudin non non orci nulla laoreet neque neque maecenas tempor ipsum et mauris fermentum auctor.</p>
+                    <p class="btmspace-30">Sed dictum blandit rutrum donec venenatis tincidunt sollicitudin quisque quis diam sit amet metus pharetra […]</p>
+                    <footer><a class="btn" href="#">Read More »</a></footer>
+                </div>
+                <div class="one_half">
+                    <p><strong>Fusce porta enim id pharetra gravida</strong></p>
+                    <a href="#"><img src="images/demo/480x186-vid.png" alt=""></a>
+                    <p>Commodo donec iaculis dolor sed lobortis fermentum.</p>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="wrapper row3">
+        <section class="hoc container clear">
+            <div class="sectiontitle">
+                <h6 class="heading">Velit fringilla tincidunt</h6>
+            </div>
+            <div class="group testimonials">
+                <article class="one_half first">
+                    <img src="images/demo/100x100.png" alt="">
+                    <blockquote>Lectus quam posuere elit quis risus sem vitae augue morbi rhoncus accumsan porttitor nullam et blandit est ac maximus elit praesent ornare dapibus nibh sed condimentum.</blockquote>
+                    <h6 class="heading">A. Name</h6>
+                    <em>Fringilla tortor tempor</em>
+                </article>
+                <article class="one_half">
+                    <img src="images/demo/100x100.png" alt="">
+                    <blockquote>Mattis sem enim hendrerit enim sed egestas odio risus pretium orci nullam sodales ornare turpis ut vestibulum felis pharetra ultrices maecenas aliquam tortor tortor non.</blockquote>
+                    <h6 class="heading">B. Name</h6>
+                    <em>Vel etiam augue mi dictum</em>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <div class="wrapper row4">
+        <footer id="footer" class="hoc clear">
+            <div class="one_quarter first">
+                <h6 class="heading">Venenatis iaculis</h6>
+                <p>Consequat lectus in tristique nisl nullam eleifend leo nunc non posuere nisi vehicula eget.</p>
+                <p>Sed placerat aliquet ligula cras tortor nisl semper et feugiat rhoncus pretium nec est morbi id odio sollicitudin.</p>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">Nullam sit amet</h6>
+                <nav>
+                    <ul class="nospace">
+                        <li><a href="index.html"><i class="fa fa-lg fa-home"></i></a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Terms</a></li>
+                        <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">Disclaimer</a></li>
+                    </ul>
+                </nav>
+                <ul class="faico clear">
+                    <li><a class="faicon-facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a class="faicon-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                    <li><a class="faicon-dribble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a class="faicon-linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>
+                    <li><a class="faicon-google-plus" href="#"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a class="faicon-vk" href="#"><i class="fa fa-vk"></i></a></li>
+                </ul>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">Tincidunt velit</h6>
+                <article>
+                    <h2 class="nospace font-x1"><a href="#">Vestibulum orci nisi</a></h2>
+                    <time class="font-xs" datetime="2045-04-06">Friday, 6<sup>th</sup> April 2045</time>
+                    <p>Vestibulum turpis vel scelerisque sem duis justo enim condimentum iaculis urna bibendum imperdiet convallis quisque elementum […]</p>
+                </article>
+            </div>
+            <div class="one_quarter">
+                <h6 class="heading">Enim diam praesent</h6>
+                <ul class="nospace linklist">
+                    <li><a href="#">Ante magna congue vel justo</a></li>
+                    <li><a href="#">Egestas est aliquam sed</a></li>
+                    <li><a href="#">Ex condimentum interdum</a></li>
+                    <li><a href="#">Faucibus velit consequat</a></li>
+                </ul>
+            </div>
+            @RenderBody()
+        </footer>
+    </div>
+    @if (TempData["Error"] != null)
+    {
+        <br />
+        <div class="alert alert-danger" role="alert">
+            @TempData["Error"].ToString()
+        </div>
+    }
+    @Html.Partial("~/Views/Shared/_Footer.cshtml")
+    <a id="backtotop" href="#top" class=""><i class="fa fa-chevron-up"></i></a>
+    <script src="layout/scripts/jquery.min.js"></script>
+    <script src="layout/scripts/jquery.backtotop.js"></script>
+    <script src="layout/scripts/jquery.mobilemenu.js"></script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>

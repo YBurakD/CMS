@@ -60,7 +60,7 @@ namespace Trial.Web.Areas.Admin.Controllers
             return View();
         }
 
-        [HttpPost, ValidateInput(false)]
+        [HttpPost]
         public ActionResult Create(Core.Models.Content.ContentItem content)
         {
             try

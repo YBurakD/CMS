@@ -38,7 +38,16 @@ namespace Trial.Web
                 "~/Content/main.css",
                 "~/Content/datepicker3.css"
                 ));
-
+            bundles.Add(new StyleBundle("~/home/style").Include(
+                "~/Content/font-awesome.min.css",
+                "~/Content/framework.css",
+                "~/Content/layout.css"
+                ));
+            bundles.Add(new ScriptBundle("~/home/script").Include(
+                       "~/Scripts/jquery.backtotop.js",
+                       "~/Scripts/jquery.min.js",
+                       "~/Scripts/jquery.mobilemenu.js"
+                        ));
             bundles.Add(new ScriptBundle("~/panel/validate").Include(
                         "~/Scripts/jquery.validate*"));
 
