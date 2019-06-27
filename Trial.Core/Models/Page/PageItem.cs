@@ -10,5 +10,12 @@ namespace Trial.Core.Models.Page
     {
         public Core.Models.User.UserItem User { get; set; }
         public List<Core.Models.Category.CategoryItem> Categories { get; set; }
+        public List<Core.Models.Content.ContentItem>  Contents { get; set; }
+        public Core.Models.Category.CategoryItem Category { get; set; }
+        public Core.Models.Content.ContentItem Content { get; set; }
+        public Core.Enums.Page.PageType PageType { get; set; }
+        public string Header { get; set; }
+        public string MenuBar { get; set; }
+        public string Footer { get; set; }
     }
 }

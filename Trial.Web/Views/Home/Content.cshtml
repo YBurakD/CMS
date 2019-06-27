@@ -1,0 +1,16 @@
+﻿@model Trial.Core.Models.Page.PageItem
+@{
+    ViewBag.Title = "Content";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="wrapper bgded overlay" style="background-image:url('images/demo/backgrounds/02.png');">
+    <section class="hoc container clear">
+        <div class="sectiontitle">
+            <h6 class="heading">@Model.Content.Title</h6>
+        </div>
+        <div class="group">
+            @Html.Raw(Model.Content.Body)
+        </div>
+    </section>
+</div>

@@ -47,7 +47,7 @@ namespace Trial.Core.Helpers.Home
                 foreach (var category in categoryList)
                 {
                     html += "<li>";
-                    string newUrl = url + "/" + ConvertToUrl(category.Name);
+                    string newUrl = url + "/" +category.Url;
                     if (category.Categories?.Count > 0)
                     {
                         html += $"<a class=\"drop\" href=\"{newUrl}/\">{category.Name}</a>";

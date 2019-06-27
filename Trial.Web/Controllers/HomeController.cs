@@ -18,13 +18,43 @@ namespace Trial.Web.Controllers
         [Route("{*path?}")]
         public ActionResult Index(string path)
         {
-            var categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategories();
-            var pageItem = new Core.Models.Home.HomePageItem();
-            pageItem.MenuBar = Core.Helpers.Home.HomeHelper.htmlMenuBar(categoryList);
-            return View(pageItem);
+            try
+            {
+                Trial.Core.Models.Page.PageItem pageItem = null;
+                var categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategories();
+                var menu = Core.Helpers.Home.HomeHelper.htmlMenuBar(categoryList);
+                if (path != null)
+                {
+                    pageItem = Core.Helpers.PageHelper.parseRoute(path, categoryList);
+                }
+                else
+                {
+                    pageItem = new Core.Models.Page.PageItem()
+                    {
+                        MenuBar = menu,
+                        PageType = Core.Enums.Page.PageType.Home
+                    };
+                }
+                if(pageItem != null)
+                {
+                    if (pageItem.Content == null && pageItem.Category != null)
+                        return View("Category",pageItem);
+                    else if(pageItem.Content != null && pageItem.Category != null)
+                        return View("Content", pageItem);
+                    return View(pageItem);
+                }
+                return View("Error");
+            }
+            catch (Exception ex)
+            {
+                return Content(ex.Message);
+            }
         }
 
-
+        public ActionResult Category()
+        {
+            return View();
+        }
         /*[Route("blog/{*path?}")]
         public ActionResult Blog(string path)
         {

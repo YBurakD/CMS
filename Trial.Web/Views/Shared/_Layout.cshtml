@@ -1,11 +1,11 @@
-﻿@model Trial.Core.Models.Home.HomePageItem
+﻿@model Trial.Core.Models.Page.PageItem
 
 @{
     ViewBag.Title = "_Layout";
 }
 <html>
     <head>
-        <title>Algenius</title>
+        <title>@Trial.Core.Strings.ProjectName</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         @Scripts.Render("~/bundles/jquery")
@@ -24,8 +24,8 @@
                 <div class="fl_right">
                     <ul>
                         <li><a href="#"><i class="fa fa-lg fa-home"></i></a></li>
-                        <li><a href="#">Login</a></li>
-                        <li><a href="#">Register</a></li>
+                        <li><a href="@Url.Action("Login","Account",new { Area = "User" })">@Trial.Core.Strings.Login</a></li>
+                        <li><a href="@Url.Action("Create","Account",new { Area = "User" })">@Trial.Core.Strings.Create</a></li>
                     </ul>
                 </div>
 
