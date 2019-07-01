@@ -29,10 +29,10 @@ namespace Trial.Core.Helpers.Category
 
         static public string CategoryList(List<Core.Models.Category.CategoryItem> categories)
         {
-            var html = "<ol class='dd-list'>";
+            var html = "<ol class='dd-list' data-language = \"\">";
             foreach (var category in categories)
             {
-                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsUpdateBtn' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
+                html += $"<li class='dd-item' data-id='{category.Id}'data-language = {category.Language} style='display:'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsUpdateBtn' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
                 if (category.Categories?.Count > 0)
                 {
                     html += CategoryList(category.Categories);
@@ -41,44 +41,6 @@ namespace Trial.Core.Helpers.Category
             }
             html += "</ol>";
             return html;
-        }
-
-
-        static public string HTMLifier(List<Models.Category.CategoryItem> ContentList)
-        {
-            string HTMLContext = "<ol class='dd-list'>";
-            int count = 0;
-
-            //If no content added yet, return a warning text.
-            if (ContentList == null)
-            {
-                HTMLContext += Core.Strings.WarningAddContent + "</ol>";
-            }
-            foreach (var item in ContentList)
-            {
-                int numberofDashes = item.DisplayName.Count(f => f == '-');
-                if (count > numberofDashes || item == ContentList.First())
-                {
-                    string olClosers = new StringBuilder().Insert(0, "</li>\n</ol>\n", count - numberofDashes).ToString() + "</li>";
-                    //  numberofDashes!=0 ? "</li>\n" + olClosers + " < li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n" : 
-                    HTMLContext += olClosers + "<li class='dd-item'>\n<div class='dd-handle'>\n" + item.Name + "</div>\n";
-                    count = numberofDashes;
-                }
-                else if (count < numberofDashes)
-                {
-                    HTMLContext += "<ol class='dd-list'>" + "<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "\n</div>\n";
-                    count = numberofDashes;
-                }
-                else if (count == numberofDashes)
-                {
-                    HTMLContext += "</li>\n<li class='dd-item'><div class='dd-handle'>\n" + item.Name + "</div>\n";
-                }
-                if (item == ContentList.Last())
-                {
-                    HTMLContext += new StringBuilder().Insert(0, "</li>\n</ol>\n", numberofDashes + 1).ToString();
-                }
-            }
-            return HTMLContext;
         }
 
         static public List<Core.Models.Category.CategoryItem> GetAllCategories()
@@ -95,6 +57,7 @@ namespace Trial.Core.Helpers.Category
                 return parents;
             }
         }
+
         static private List<Core.Models.Category.CategoryItem> GetAllSubCategories(Core.Models.Category.CategoryItem parent, List<Core.Models.Category.CategoryItem> categories, int row)
         {
             row++;
@@ -107,28 +70,30 @@ namespace Trial.Core.Helpers.Category
             }
             return lst;
         }
+
         static public List<Core.Models.Category.CategoryItem> GetAllCategoryItemsSorted()
         {
             using (var db = new DataModel.Entities())
             {
                 List<Core.Models.Category.CategoryItem> list = new List<Core.Models.Category.CategoryItem>();
                 var query = (from i in db.Categories
-                        where i.Deleted == null
-                        orderby i.Name ascending
-                        select new Core.Models.Category.CategoryItem()
-                        {
-                            Id = i.Id,
-                            Name = i.Name,
-                            Body = i.Body,
-                            ParentId = i.ParentId,
-                            Row = i.Row,
-                            UserId = i.UserId,
-                            Url = i.Url,
-                            Type = i.Type,
-                            Status = i.Status,
-                            Created = i.Created,
-                            Updated = i.Updated
-                        });
+                             where i.Deleted == null
+                             orderby i.Name ascending
+                             select new Core.Models.Category.CategoryItem()
+                             {
+                                 Id = i.Id,
+                                 Name = i.Name,
+                                 Body = i.Body,
+                                 ParentId = i.ParentId,
+                                 Row = i.Row,
+                                 UserId = i.UserId,
+                                 Language = i.Language,
+                                 Url = i.Url,
+                                 Type = i.Type,
+                                 Status = i.Status,
+                                 Created = i.Created,
+                                 Updated = i.Updated
+                             });
                 foreach (var item in query)
                 {
                     list.Add(item);
@@ -189,6 +154,7 @@ namespace Trial.Core.Helpers.Category
                                 ParentId = i.ParentId,
                                 Row = i.Row,
                                 UserId = i.UserId,
+                                Language = i.Language,
                                 Url = i.Url,
                                 Type = i.Type,
                                 Status = i.Status,
@@ -214,6 +180,7 @@ namespace Trial.Core.Helpers.Category
                                 Row = i.Row,
                                 Url = i.Url,
                                 UserId = i.UserId,
+                                Language = i.Language,
                                 Type = i.Type,
                                 Status = i.Status,
                                 Created = i.Created,
@@ -266,6 +233,7 @@ namespace Trial.Core.Helpers.Category
                 ParentId = category.ParentId,
                 Row = category.Row,
                 UserId = category.UserId,
+                Language = category.Language,
                 Type = category.Type,
                 Status = category.Status,
                 Created = DateTime.Now

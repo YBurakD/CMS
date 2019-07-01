@@ -360,4 +360,13 @@
   <data name="WrongPassword" xml:space="preserve">
     <value>Wrong Password</value>
   </data>
+  <data name="CategoryLanguage" xml:space="preserve">
+    <value>Category Language</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="Turkish" xml:space="preserve">
+    <value>Turkish</value>
+  </data>
 </root>

@@ -17,7 +17,8 @@
     <Property Name="Deleted" Type="DateTime" Precision="3" />
     <NavigationProperty Name="User" Relationship="Self.FK_Categories_Users" FromRole="Categories" ToRole="Users" />
     <NavigationProperty Name="Contents" Relationship="Self.FK_Contents_Categories" FromRole="Categories" ToRole="Contents" />
-    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Language" Type="CMSModel.CategoryLanguage" Nullable="false" />
   </EntityType>
   <EntityType Name="Content">
     <Key>
@@ -115,4 +116,5 @@
   <EnumType Name="ContentStatus" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Content.ContentStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
   <EnumType Name="CategoryStatus" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
   <EnumType Name="CategoryType" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+  <EnumType Name="CategoryLanguage" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryLanguage" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
 </Schema>

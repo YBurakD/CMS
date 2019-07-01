@@ -28,7 +28,6 @@
                         <li><a href="@Url.Action("Create","Account",new { Area = "User" })">@Trial.Core.Strings.Create</a></li>
                     </ul>
                 </div>
-
             </div>
         </div>
         @Html.Partial("~/Views/Shared/_Header.cshtml")
@@ -36,14 +35,13 @@
         @RenderBody()
         @if (TempData["Error"] != null)
         {
-            <br />
+            <br/>
             <div class="alert alert-danger" role="alert">
                 @TempData["Error"].ToString()
             </div>
         }
         @Html.Partial("~/Views/Shared/_Footer.cshtml")
         <a id="backtotop" href="#top" class=""><i class="fa fa-chevron-up"></i></a>
-
         @RenderSection("scripts", required: false)
     </body>
 </html>

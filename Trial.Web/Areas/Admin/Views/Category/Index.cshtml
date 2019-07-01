@@ -18,7 +18,28 @@
             <header>
                 @Trial.Core.Strings.Categories
             </header>
+
+            <div class="tools">
+                <a href="@Url.Action("Create","Category")" class="btn btn-primary ink-reaction btn-raised">@Trial.Core.Strings.CreateNew</a>
+
+
+            </div>
+
         </div>
+        <div class="col-sm-6" style="padding-left:25px">
+            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryLanguage)))
+            {
+                var selected = "";
+                if (type.Value == "0")
+                {
+                    selected = "checked";
+                }
+                <label class="radio-inline radio-styled">
+                    <input type="radio" name="Language" value="@type.Value" @selected><span>@type.Text</span>
+                </label>
+            }
+        </div>
+    
         <div class="card-body">
             <div class="dd jsCategories">
                 @Html.Raw(Model.CategoryHtml)

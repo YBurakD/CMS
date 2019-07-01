@@ -15,7 +15,7 @@ namespace Trial.Web.Controllers
             return string.Join(",", test[0]);
         }*/
 
-        [Route("{*path?}")]
+        [Route("{*path}")]
         public ActionResult Index(string path)
         {
             try
@@ -31,12 +31,13 @@ namespace Trial.Web.Controllers
                 {
                     pageItem = new Core.Models.Page.PageItem()
                     {
-                        MenuBar = menu,
                         PageType = Core.Enums.Page.PageType.Home
                     };
                 }
                 if(pageItem != null)
                 {
+                    pageItem.MenuBar = menu;
+
                     if (pageItem.Content == null && pageItem.Category != null)
                         return View("Category",pageItem);
                     else if(pageItem.Content != null && pageItem.Category != null)

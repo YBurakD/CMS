@@ -11,6 +11,8 @@ namespace Trial.Web.Attributes
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
             var user = Core.Helpers.User.UserHelper.CurrentUser();
+
+            var area = filterContext.RouteData.DataTokens["area"]?.ToString();
             if (this.AuthorizeCore(filterContext.HttpContext) && user != null)
             {
                 var vb = filterContext.Controller.ViewBag;
@@ -19,11 +21,22 @@ namespace Trial.Web.Attributes
             }
             else
             {
-                filterContext.Result = new RedirectToRouteResult("Default", new System.Web.Routing.RouteValueDictionary()
+                if(area == "Admin" || area == "User")
                 {
-                    {"controller", "Home" },
-                    {"action", "Index" }
-                });
+                    filterContext.Result = new RedirectToRouteResult("User", new System.Web.Routing.RouteValueDictionary()
+                    {
+                        {"controller", "Account" },
+                        {"action", "Login" }
+                    });
+                }
+                else
+                {
+                    filterContext.Result = new RedirectToRouteResult("Default", new System.Web.Routing.RouteValueDictionary()
+                    {
+                        {"controller", "Home" },
+                        {"action", "Index" }
+                    });
+                }
             }
         }
     }

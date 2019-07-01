@@ -54,7 +54,7 @@
 
                 <div class="form-group">
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label class="control-label">@Trial.Core.Strings.CategoryType</label>
                             <br />
                             @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryType)))
@@ -69,7 +69,7 @@
                                 </label>
                             }
                         </div>
-                        <div class="col-sm-6">
+                        <div class="col-sm-4">
                             <label class="control-label">@Trial.Core.Strings.CategoryStatus</label>
                             <br />
                             @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryStatus)))
@@ -84,13 +84,26 @@
                                 </label>
                             }
                         </div>
+                        <div class="col-sm-4">
+                            <label class="control-label">@Trial.Core.Strings.CategoryLanguage</label>
+                            <br />
+                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryLanguage)))
+                            {
+                                var selected = "";
+                                if (type.Value == "1")
+                                {
+                                    selected = "checked";
+                                }
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Language" value="@type.Value" @selected><span>@type.Text</span>
+                                </label>
+                            }
+                        </div>
                     </div>
                 </div>
 
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="@Trial.Core.Strings.Save" class="btn btn-default" />
-                    </div>
+                    <input type="submit" value="@Trial.Core.Strings.Save" class="btn btn-default" />
                 </div>
             }
         </div>

@@ -12,12 +12,13 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Url" Type="nvarchar" MaxLength="250" />
+          <Property Name="Url" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="ParentId" Type="uniqueidentifier" />
           <Property Name="Row" Type="int" Nullable="false" />
           <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Type" Type="tinyint" Nullable="false" />
           <Property Name="Status" Type="tinyint" Nullable="false" />
+          <Property Name="Language" Type="tinyint" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="Updated" Type="datetime" />
           <Property Name="Deleted" Type="datetime" />
@@ -131,7 +132,8 @@
           <Property Name="Deleted" Type="DateTime" Precision="3" />
           <NavigationProperty Name="User" Relationship="Self.FK_Categories_Users" FromRole="Categories" ToRole="Users" />
           <NavigationProperty Name="Contents" Relationship="Self.FK_Contents_Categories" FromRole="Categories" ToRole="Contents" />
-          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Url" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Language" Type="CMSModel.CategoryLanguage" Nullable="false" />
         </EntityType>
         <EntityType Name="Content">
           <Key>
@@ -229,6 +231,7 @@
         <EnumType Name="ContentStatus" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Content.ContentStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EnumType Name="CategoryStatus" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryStatus" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
         <EnumType Name="CategoryType" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryType" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
+        <EnumType Name="CategoryLanguage" UnderlyingType="Byte" a:ExternalTypeName="Core.Enums.Category.CategoryLanguage" xmlns:a="http://schemas.microsoft.com/ado/2006/04/codegeneration" />
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -238,6 +241,7 @@
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="CMSModel.Category">
               <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="Language" ColumnName="Language" />
                 <ScalarProperty Name="Url" ColumnName="Url" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />

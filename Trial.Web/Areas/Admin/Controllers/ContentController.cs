@@ -17,9 +17,11 @@ namespace Trial.Web.Areas.Admin.Controllers
             {
                 string html;
                 var content = new Core.Models.Content.ContentPageItem();
+                
                 if (id == null)
                 {
-                    html = Core.Helpers.Content.ContentHelper.ContentHtml();
+                    var categories = Core.Helpers.Category.CategoryHelper.GetAllCategories();
+                    html = Core.Helpers.Content.ContentHelper.ContentHtml(categories);
                 }
                 else
                 {
@@ -28,7 +30,7 @@ namespace Trial.Web.Areas.Admin.Controllers
                     content.categoryId = id;
                 }
                 content.ContentHtml = html;
-                content.isCategoryChosen = (id == null);
+                content.isCategoryChosen = (id != null);
                 return View(content);
             }
             catch (Exception ex)

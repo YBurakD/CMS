@@ -7,12 +7,13 @@
     <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="Body" Type="nvarchar(max)" Nullable="false" />
-    <Property Name="Url" Type="nvarchar" MaxLength="250" />
+    <Property Name="Url" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="ParentId" Type="uniqueidentifier" />
     <Property Name="Row" Type="int" Nullable="false" />
     <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
     <Property Name="Type" Type="tinyint" Nullable="false" />
     <Property Name="Status" Type="tinyint" Nullable="false" />
+    <Property Name="Language" Type="tinyint" />
     <Property Name="Created" Type="datetime" Nullable="false" />
     <Property Name="Updated" Type="datetime" />
     <Property Name="Deleted" Type="datetime" />

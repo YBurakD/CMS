@@ -7,14 +7,18 @@ using System.Threading.Tasks;
 namespace Trial.Core.Helpers.Content
 {
     public class ContentHelper : BaseHelper
-    {
-        static public string ContentHtml()
+    {   //List<Core.Models.Category.CategoryItem> categories
+        static public string ContentHtml(List<Core.Models.Category.CategoryItem> categories)
         {
             var html = "<ol class='dd-list'>";
-            var categories = Category.CategoryHelper.GetAllCategoryItemsSorted();
             foreach (var category in categories)
             {
-                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentSelectBtn' data-id='{category.Id}'><i class='fa fa-plus-square'></i></a></div>";
+                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentSelectBtn' data-id='{category.Id}'><i class='fa fa-chevron-right'></i></a></div>";
+                if (category.Categories?.Count > 0)
+                {
+                    html += ContentHtml(category.Categories);
+                }
+                html += "</li>";
             }
             html += "</ol>";
             return html;

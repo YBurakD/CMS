@@ -16,28 +16,22 @@
 <section class="section-body">
     <div class="card">
         <div class="card-head">
-            <div class="col-sm-6">
-                <header>
-                    @if (Model.isCategoryChosen)
-                    {
-                        @Trial.Core.Strings.Contents;
-                    }
-                    else
-                    {
-                        @Model.categoryName
-                    }
-                </header>
-            </div>
-            <div class="col-sm-12">
-                @if (Model.isCategoryChosen)
+            <header>
+                @if (Model.categoryId == null)
                 {
-                <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn" data-id="" >@Trial.Core.Strings.CreateNew</a>
+                    @Trial.Core.Strings.Contents;
+
                 }
                 else
                 {
-                <a class="btn btn-primary ink-reaction btn-raised pull-right jsContentCreateBtn" data-id="@Model.categoryId">@Trial.Core.Strings.CreateNew</a>
+                    @Model.categoryName
                 }
-                
+            </header>
+            <div class="tools">
+                @if (Model.categoryId != null)
+                {
+                    <a class="btn btn-primary ink-reaction btn-raised jsContentCreateBtn" data-id="@Model.categoryId">@Trial.Core.Strings.CreateNew</a>
+                }
             </div>
         </div>
         <div class="card-body">

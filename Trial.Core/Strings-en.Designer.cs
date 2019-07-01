@@ -115,6 +115,15 @@ namespace Trial.Core {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Category Language.
+        /// </summary>
+        public static string CategoryLanguage {
+            get {
+                return ResourceManager.GetString("CategoryLanguage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Category Name.
         /// </summary>
         public static string CategoryName {
@@ -318,6 +327,15 @@ namespace Trial.Core {
         public static string DiffUserName {
             get {
                 return ResourceManager.GetString("DiffUserName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        public static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
             }
         }
         
@@ -669,6 +687,15 @@ namespace Trial.Core {
         public static string Tables {
             get {
                 return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Turkish.
+        /// </summary>
+        public static string Turkish {
+            get {
+                return ResourceManager.GetString("Turkish", resourceCulture);
             }
         }
         

@@ -13,6 +13,7 @@
         this._nestableList();
         this._ckeditor();
         this._btnClick();
+        this._selectLang();
     };
 
     p._nestableList = function () {
@@ -73,6 +74,29 @@
             window.location.href = updateUrl + "/" + button.getAttribute("data-id");
         }
     };
-
+    p._selectLang = function () {
+        var radioButtons = document.getElementsByName("Language");
+        var RadioValue = $("input[name='Language']:checked").val();
+        for (let i = 0; i < radioButtons.length; i++) {
+            radioButtons[i].addEventListener("click", function () {
+                radioButtonsControl(RadioValue);
+            }, false);
+        }
+    }
+    function radioButtonsControl(RadioValue) {
+        var $liItems = $(".dd-item");
+        if (RadioValue == "0") {
+            for (let i = 0; i < $liItems.length; i++) {
+                if ($liItems[i].dataset.language == "English")
+                    $liItems[i].style.display = 'none';
+            }
+        }
+        else if (RadioValue == "1") {
+            for (let i = 0; i < $liItems.length; i++) {
+                if ($liItems[i].dataset.language == "Turkish")
+                    $liItems[i].style.display = 'none';
+            }
+        }
+    }
     window.trial.AppCategory = new AppCategory;
 }(jQuery));

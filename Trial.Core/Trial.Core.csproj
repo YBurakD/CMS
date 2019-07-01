@@ -81,6 +81,7 @@
     <Compile Include="DataModel\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Enums\Category\CategoryLanguage.cs" />
     <Compile Include="Enums\Category\CategoryStatus.cs" />
     <Compile Include="Enums\Category\CategoryType.cs" />
     <Compile Include="Enums\Content\ContentStatus.cs" />

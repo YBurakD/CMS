@@ -30,10 +30,10 @@ namespace Trial.Web.Areas.Admin.Controllers
             try
             {
                 var categories = Core.Helpers.Category.CategoryHelper.GetAllCategories();
-                var html = Core.Helpers.Category.CategoryHelper.CategoryList(categories);
+                var htmlTr = Core.Helpers.Category.CategoryHelper.CategoryList(categories);
                 return View(new Core.Models.Category.CategoryPageItem()
                 {
-                    CategoryHtml = html
+                    CategoryHtml = htmlTr
                 });
             }
             catch (Exception ex)
