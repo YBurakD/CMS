@@ -28,6 +28,11 @@ namespace Trial.Core.Models.Category
         public Core.Enums.Category.CategoryType Type { get; set; }
         public Core.Enums.Category.CategoryStatus Status { get; set; }
         public Core.Enums.Category.CategoryLanguage Language { get; set; }
+        public Core.Enums.Helper.EnumModel<Core.Enums.Category.CategoryLanguage> LanguageData { get
+            {
+                return Core.Enums.Helper.Get(Language);
+            }
+        }
         public DateTime Created { get; set; }
         public DateTime? Updated { get; set; }
         public DateTime? Deleted { get; set; }

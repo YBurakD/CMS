@@ -15,14 +15,19 @@ namespace Trial.Web.Controllers
             return string.Join(",", test[0]);
         }*/
 
+
+        // lang = en/
+        // lang = t4/
         [Route("{*path}")]
         public ActionResult Index(string path)
         {
             try
             {
+                var lang = Core.Helpers.PageHelper.GetLanguage(path, out path);
+                var categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategoriesByLanguage(lang);
                 Trial.Core.Models.Page.PageItem pageItem = null;
-                var categoryList = Core.Helpers.Category.CategoryHelper.GetAllCategories();
-                var menu = Core.Helpers.Home.HomeHelper.htmlMenuBar(categoryList);
+                
+                var menu = Core.Helpers.Home.HomeHelper.htmlMenuBar(categoryList,lang);
                 if (path != null)
                 {
                     pageItem = Core.Helpers.PageHelper.parseRoute(path, categoryList);
@@ -56,10 +61,5 @@ namespace Trial.Web.Controllers
         {
             return View();
         }
-        /*[Route("blog/{*path?}")]
-        public ActionResult Blog(string path)
-        {
-            return View();
-        }*/
     }
 }

@@ -91,22 +91,6 @@
                                 </label>
                             }
                         </div>
-                        <div class="col-sm-4">
-                            <label class="control-label">@Trial.Core.Strings.CategoryLanguage</label>
-                            <br />
-                            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryLanguage)))
-                            {
-                                var selected = "";
-
-                                if (Enum.Parse(typeof(Trial.Core.Enums.Category.CategoryLanguage), type.Value).ToString() == Model.Language.ToString())
-                                {
-                                    selected = "checked";
-                                }
-                                <label class="radio-inline radio-styled">
-                                    <input type="radio" name="Language" value="@type.Value" @selected><span>@type.Text</span>
-                                </label>
-                            }
-                        </div>
                     </div>
                 </div>
 

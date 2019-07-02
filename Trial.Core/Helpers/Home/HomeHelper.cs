@@ -15,19 +15,19 @@ namespace Trial.Core.Helpers.Home
 
             return html;
         }
-        public static string htmlMenuBar(List<Core.Models.Category.CategoryItem> categoryList)
+        public static string htmlMenuBar(List<Core.Models.Category.CategoryItem> categoryList, Enums.Page.Language language)
         {
             string html =  "<div class=\"wrapper row2\">"+
                            " <nav id = \"mainav\" class=\"hoc clear\">"+
                            " <ul class=\"clear\">";
-            html += htmlMenuBar(categoryList, false, "");
+            html += htmlMenuBar(categoryList, false, "",language);
             html += "</ul>"+"<form action=\"#\"><select>";
-            html += htmlMenuBar(categoryList, true,"");
+            html += htmlMenuBar(categoryList, true,"",language);
             html += "</select></form>";
             html += "</nav></div>";        
             return html;
         }
-        public static string htmlMenuBar(List<Core.Models.Category.CategoryItem> categoryList,bool form,string url)
+        public static string htmlMenuBar(List<Core.Models.Category.CategoryItem> categoryList,bool form,string url, Enums.Page.Language language)
         {
             string html = "";
             if (form)
@@ -37,7 +37,7 @@ namespace Trial.Core.Helpers.Home
                     html += $"<option selected=\"selected\" value=\"\">{category.Name}</option>";
                     if (category.Categories?.Count > 0)
                     {
-                        html += htmlMenuBar(category.Categories, form,"");
+                        html += htmlMenuBar(category.Categories, form,"",language);
                     }
                 }
                 
@@ -47,12 +47,13 @@ namespace Trial.Core.Helpers.Home
                 foreach (var category in categoryList)
                 {
                     html += "<li>";
-                    string newUrl = url + "/" +category.Url;
+                    string categoryUrl = url + "/" +category.Url;
+                    string newUrl = categoryUrl + "/" + Core.Enums.Helper.Get(language).ShortName;
                     if (category.Categories?.Count > 0)
                     {
                         html += $"<a class=\"drop\" href=\"{newUrl}/\">{category.Name}</a>";
                         html += "<ul>";
-                        html += htmlMenuBar(category.Categories,form, newUrl);
+                        html += htmlMenuBar(category.Categories,form, categoryUrl, language);
                         html += "</ul>";
                     }
                     else

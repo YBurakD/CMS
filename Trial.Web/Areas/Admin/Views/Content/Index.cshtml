@@ -35,7 +35,33 @@
             </div>
         </div>
         <div class="card-body">
-            <div class="dd jsContents">
+            @{
+                if (Model.categoryId == null)
+                {
+                    <div class="dd">
+                        <label>@Trial.Core.Strings.Language</label>
+                        <br/>
+                        @foreach (var type in Trial.Core.Enums.Helper.List<Trial.Core.Enums.Category.CategoryLanguage>())
+                        {
+
+                            if (type.Self == Trial.Core.Enums.Category.CategoryLanguage.Turkish)
+                            {
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Language" value="@type.Name" checked='checked'><span>@type.Text</span>
+                                </label>
+                            }
+                            else
+                            {
+                                <label class="radio-inline radio-styled">
+                                    <input type="radio" name="Language" value="@type.Name"><span>@type.Text</span>
+                                </label>
+                            }
+                        }
+                    </div>
+                }
+            }
+
+            <div class="dd jsContents mt-20">
                 @Html.Raw(Model.ContentHtml)
             </div>
         </div>

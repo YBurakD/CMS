@@ -13,7 +13,12 @@ namespace Trial.Core.Helpers.Content
             var html = "<ol class='dd-list'>";
             foreach (var category in categories)
             {
-                html += $"<li class='dd-item' data-id='{category.Id}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentSelectBtn' data-id='{category.Id}'><i class='fa fa-chevron-right'></i></a></div>";
+                var display = "inherit";
+                if (category.Language == Enums.Category.CategoryLanguage.English)
+                {
+                    display = "none";
+                }
+                html += $"<li class='dd-item' data-id='{category.Id}'data-language={category.LanguageData.Name} style='display:{display}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsContentSelectBtn' data-id='{category.Id}'><i class='fa fa-chevron-right'></i></a></div>";
                 if (category.Categories?.Count > 0)
                 {
                     html += ContentHtml(category.Categories);

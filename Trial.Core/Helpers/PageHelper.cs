@@ -9,6 +9,40 @@ namespace Trial.Core.Helpers
 {
     public class PageHelper : BaseHelper
     {
+        public static Enums.Page.Language GetLanguage(string path, out string p)
+        {
+            string lastElement = null;
+            if(path != null)
+            {
+                var paths = path.Split('/');
+                if (paths.Length >= 2)
+                    lastElement = paths[paths.Length - 2];
+
+                if (lastElement == "en")
+                {
+                    p = null;
+                    for (int i = 0; i < paths.Length - 2; i++)
+                        p += paths[i] + "/";
+                    return Enums.Page.Language.English;
+                }
+                else if(lastElement == "tr")
+                {
+                    p = null;
+                    for (int i = 0; i < paths.Length - 2; i++)
+                        p += paths[i] + "/";
+                    return Enums.Page.Language.Turkish;
+                }
+                else
+                {
+                    p = path;
+                    return Enums.Page.Language.Turkish;
+                }
+            }
+            p = path;
+            return Enums.Page.Language.Turkish;
+        }
+
+
         public static Core.Models.Page.PageItem parseRoute(string path, List<Core.Models.Category.CategoryItem> categories)
         {
             Core.Models.Page.PageItem page = null;
@@ -17,9 +51,9 @@ namespace Trial.Core.Helpers
                 using (var db = new DataModel.Entities())
                 {
                     var paths = path.Split('/');
-                    var lastElement = paths[paths.Length - 2];
                     if (paths.Length == 2)
                     {
+                        var lastElement = paths[paths.Length - 2];
                         var category = GetCategory(lastElement, db);
                         if (category != null)
                         {
@@ -32,6 +66,7 @@ namespace Trial.Core.Helpers
                     }
                     else
                     {
+                        var lastElement = paths[paths.Length - 3];
                         var category = GetCategory(lastElement, db);
                         if (category != null)
                         {
@@ -57,17 +92,6 @@ namespace Trial.Core.Helpers
                             }
                         }
                     }
-
-                    /*
-                    if (paths.Length >= 1)
-                        lastElement = paths[paths.Length - 2];
-                    else
-                        lastElement = "Index";
-
-                    var reqPage = requestPage(paths, categories, db);
-                    */
-
-
                 }
             }
             catch (Exception) { }

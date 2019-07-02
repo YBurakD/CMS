@@ -26,22 +26,30 @@
             </div>
 
         </div>
-        <div class="col-sm-6" style="padding-left:25px">
-            @foreach (var type in EnumHelper.GetSelectList(typeof(Trial.Core.Enums.Category.CategoryLanguage)))
-            {
-                var selected = "";
-                if (type.Value == "0")
-                {
-                    selected = "checked";
-                }
-                <label class="radio-inline radio-styled">
-                    <input type="radio" name="Language" value="@type.Value" @selected><span>@type.Text</span>
-                </label>
-            }
-        </div>
     
         <div class="card-body">
-            <div class="dd jsCategories">
+            <div class="dd">
+                <label>@Trial.Core.Strings.Language</label>
+                <br />
+                @foreach (var type in Trial.Core.Enums.Helper.List<Trial.Core.Enums.Category.CategoryLanguage>())
+                {
+
+                    if (type.Self == Trial.Core.Enums.Category.CategoryLanguage.Turkish)
+                    {
+                        <label class="radio-inline radio-styled">
+                            <input type="radio" name="Language" value="@type.Name" checked='checked'><span>@type.Text</span>
+                        </label>
+                    }
+                    else
+                    {
+                        <label class="radio-inline radio-styled">
+                            <input type="radio" name="Language" value="@type.Name"><span>@type.Text</span>
+                        </label>
+                    }
+                }
+            </div>
+
+            <div class="dd jsCategories mt-20">
                 @Html.Raw(Model.CategoryHtml)
             </div>
         </div>

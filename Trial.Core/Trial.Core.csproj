@@ -86,6 +86,7 @@
     <Compile Include="Enums\Category\CategoryType.cs" />
     <Compile Include="Enums\Content\ContentStatus.cs" />
     <Compile Include="Enums\Content\ContentType.cs" />
+    <Compile Include="Enums\Helper.cs" />
     <Compile Include="Enums\Page\PageType.cs" />
     <Compile Include="Enums\User\UserRole.cs" />
     <Compile Include="Helpers\BaseHelper.cs" />

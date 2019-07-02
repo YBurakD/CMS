@@ -360,4 +360,7 @@
   <data name="Turkish" xml:space="preserve">
     <value>Türkçe</value>
   </data>
+  <data name="Language" xml:space="preserve">
+    <value>Dil</value>
+  </data>
 </root>

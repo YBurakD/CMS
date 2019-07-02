@@ -29,10 +29,16 @@ namespace Trial.Core.Helpers.Category
 
         static public string CategoryList(List<Core.Models.Category.CategoryItem> categories)
         {
-            var html = "<ol class='dd-list' data-language = \"\">";
+            var html = "<ol class='dd-list'>";
             foreach (var category in categories)
             {
-                html += $"<li class='dd-item' data-id='{category.Id}'data-language = {category.Language} style='display:'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsUpdateBtn' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
+                var display = "inherit";
+                if(category.Language == Enums.Category.CategoryLanguage.English)
+                {
+                    display = "none";
+                }
+
+                html += $"<li class='dd-item' data-id='{category.Id}' data-language={category.LanguageData.Name} style='display:{display}'><div class='dd-handle'><span class='dd-name'>{category.Name}</span><a class='btn btn-primary ink-reaction btn-raised pull-right jsUpdateBtn' data-id='{category.Id}'><i class='fa fa-edit'></i></a></div>";
                 if (category.Categories?.Count > 0)
                 {
                     html += CategoryList(category.Categories);
@@ -41,6 +47,22 @@ namespace Trial.Core.Helpers.Category
             }
             html += "</ol>";
             return html;
+        }
+
+        static public List<Core.Models.Category.CategoryItem> GetAllCategoriesByLanguage(Enums.Page.Language language)
+        {
+
+            using (var db = new DataModel.Entities())
+            {
+                var all = All();
+                var parents = all.Where(x => x.ParentId == null && Core.Enums.Helper.Get(x.Language).Name == Core.Enums.Helper.Get(language).Name ).ToList();
+                foreach (var parent in parents)
+                {
+                    parent.DisplayName = parent.Name;
+                    parent.Categories = GetAllSubCategories(parent, all, parent.CategoryRow);
+                }
+                return parents;
+            }
         }
 
         static public List<Core.Models.Category.CategoryItem> GetAllCategories()
@@ -207,7 +229,10 @@ namespace Trial.Core.Helpers.Category
 
                     return Create(category, db);
                 }
-                return Update(category, db, result);
+                else
+                {
+                    return Update(category, db, result);
+                }
             }
         }
 
@@ -218,6 +243,7 @@ namespace Trial.Core.Helpers.Category
             dbCategory.ParentId = category.ParentId != null && category.ParentId != dbCategory.ParentId ? category.ParentId : dbCategory.ParentId;
             dbCategory.Type = category.Type != dbCategory.Type ? category.Type : dbCategory.Type;
             dbCategory.Status = category.Status != dbCategory.Status ? category.Status : dbCategory.Status;
+            dbCategory.Language = category.Language != dbCategory.Language ? category.Language : dbCategory.Language;
             db.SaveChanges();
             return category;
         }

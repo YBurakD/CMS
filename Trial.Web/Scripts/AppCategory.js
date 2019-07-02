@@ -76,26 +76,20 @@
     };
     p._selectLang = function () {
         var radioButtons = document.getElementsByName("Language");
-        var RadioValue = $("input[name='Language']:checked").val();
         for (let i = 0; i < radioButtons.length; i++) {
             radioButtons[i].addEventListener("click", function () {
-                radioButtonsControl(RadioValue);
+                radioButtonsControl();
             }, false);
         }
     }
-    function radioButtonsControl(RadioValue) {
+    function radioButtonsControl() {
         var $liItems = $(".dd-item");
-        if (RadioValue == "0") {
-            for (let i = 0; i < $liItems.length; i++) {
-                if ($liItems[i].dataset.language == "English")
-                    $liItems[i].style.display = 'none';
-            }
-        }
-        else if (RadioValue == "1") {
-            for (let i = 0; i < $liItems.length; i++) {
-                if ($liItems[i].dataset.language == "Turkish")
-                    $liItems[i].style.display = 'none';
-            }
+        var RadioValue = $("input[name='Language']:checked").val();
+        for (let i = 0; i < $liItems.length; i++) {
+            if ($liItems[i].dataset.language != RadioValue)
+                $liItems[i].style.display = 'none';
+            else
+                $liItems[i].style.display = '';
         }
     }
     window.trial.AppCategory = new AppCategory;
